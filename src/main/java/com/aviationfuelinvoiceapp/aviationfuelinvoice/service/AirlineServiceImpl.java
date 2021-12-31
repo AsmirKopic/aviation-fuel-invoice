@@ -2,6 +2,7 @@ package com.aviationfuelinvoiceapp.aviationfuelinvoice.service;
 
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.dao.AirlineRepository;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public class AirlineServiceImpl implements AirlineService{
 
     AirlineRepository airlineRepository;
 
+    @Autowired
     public AirlineServiceImpl(AirlineRepository airlineRepository) {
         this.airlineRepository = airlineRepository;
     }
@@ -47,21 +49,6 @@ public class AirlineServiceImpl implements AirlineService{
     public void deleteById(int theId) {
 
         airlineRepository.deleteById(theId);
-    }
-
-    @Override
-    public List<Airline> searchByName(String name) {
-
-        List<Airline> results = null;
-
-        if (results != null && ((name.trim().length() > 0))){
-
-            results = airlineRepository.findByFirstNameContainsOrLastNameContainsAllIgnoreCase(name, name);
-        } else {
-            results = findAll();
-        }
-
-        return results;
     }
 
 }

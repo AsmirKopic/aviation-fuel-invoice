@@ -5,8 +5,7 @@ import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.AirlineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +29,25 @@ public class AirlineController {
 
         return "airlines/list-airlines";
     }
+
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdd(Model theModel) {
+
+        Airline theAirline = new Airline();
+
+        theModel.addAttribute("airline", theAirline);
+
+        return "/airlines/airline-form";
+    }
+
+    @PostMapping("/save")
+    public String save(@ModelAttribute("airline") Airline theAirline){
+
+        airlineService.save(theAirline);
+
+        return "redirect:/airlines/list";
+    }
+
+
 
 }

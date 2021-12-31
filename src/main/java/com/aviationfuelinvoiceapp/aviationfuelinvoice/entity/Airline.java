@@ -39,6 +39,10 @@ public class Airline {
         this.paymentTerms = paymentTerms;
     }
 
+    public Airline() {
+
+    }
+
     public int getId() {
         return id;
     }

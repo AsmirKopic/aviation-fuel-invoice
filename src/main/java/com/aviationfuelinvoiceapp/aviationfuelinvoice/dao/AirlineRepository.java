@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface AirlineRepository extends JpaRepository<Airline, Integer> {
 
-    public List<Airline> findByFirstNameContainsOrLastNameContainsAllIgnoreCase(String name, String lName);
 }
