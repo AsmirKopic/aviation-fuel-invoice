@@ -9,7 +9,7 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int invoiceId;
+    private Integer invoiceId;
 
     @Column(name = "date")
     private String date;
@@ -20,10 +20,10 @@ public class Invoice {
     private Airline airline;
 
     @Column(name = "upliftKg")
-    private double upliftKg;
+    private Double upliftKg;
 
     @Column(name = "upliftLit")
-    private double upliftLit;
+    private Double upliftLit;
 
     @Column(name = "ticketNumber")
     private String ticketNumber;
@@ -40,7 +40,7 @@ public class Invoice {
     @Column(name = "authorizationNote")
     private String authorizationNote;
 
-    public Invoice(String date, Airline airline, double upliftKg, double upliftLit, String ticketNumber, String flightNumber, String aircraftRegistration, String aircraftType, String authorizationNote) {
+    public Invoice(String date, Airline airline, Double upliftKg, Double upliftLit, String ticketNumber, String flightNumber, String aircraftRegistration, String aircraftType, String authorizationNote) {
         this.date = date;
         this.airline = airline;
         this.upliftKg = upliftKg;
@@ -52,11 +52,15 @@ public class Invoice {
         this.authorizationNote = authorizationNote;
     }
 
-    public int getInvoiceId() {
+    public Invoice() {
+
+    }
+
+    public Integer getInvoiceId() {
         return invoiceId;
     }
 
-    public void setInvoiceId(int invoiceId) {
+    public void setInvoiceId(Integer invoiceId) {
         this.invoiceId = invoiceId;
     }
 
@@ -76,19 +80,19 @@ public class Invoice {
         this.airline = airline;
     }
 
-    public double getUpliftKg() {
+    public Double getUpliftKg() {
         return upliftKg;
     }
 
-    public void setUpliftKg(double upliftKg) {
+    public void setUpliftKg(Double upliftKg) {
         this.upliftKg = upliftKg;
     }
 
-    public double getUpliftLit() {
+    public Double getUpliftLit() {
         return upliftLit;
     }
 
-    public void setUpliftLit(double upliftLit) {
+    public void setUpliftLit(Double upliftLit) {
         this.upliftLit = upliftLit;
     }
 
@@ -130,5 +134,21 @@ public class Invoice {
 
     public void setAuthorizationNote(String authorizationNote) {
         this.authorizationNote = authorizationNote;
+    }
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "invoiceId=" + invoiceId +
+                ", date='" + date + '\'' +
+                ", airline=" + airline +
+                ", upliftKg=" + upliftKg +
+                ", upliftLit=" + upliftLit +
+                ", ticketNumber='" + ticketNumber + '\'' +
+                ", flightNumber='" + flightNumber + '\'' +
+                ", aircraftRegistration='" + aircraftRegistration + '\'' +
+                ", aircraftType='" + aircraftType + '\'' +
+                ", authorizationNote='" + authorizationNote + '\'' +
+                '}';
     }
 }

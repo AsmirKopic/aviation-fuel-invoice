@@ -4,6 +4,7 @@ import com.aviationfuelinvoiceapp.aviationfuelinvoice.dao.AirlineRepository;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,11 +20,13 @@ public class AirlineServiceImpl implements AirlineService{
     }
 
     @Override
+    @Transactional
     public List<Airline> findAll() {
         return airlineRepository.findAll();
     }
 
     @Override
+    @Transactional
     public Airline findById(int theId) {
 
         Optional<Airline> result = airlineRepository.findById(theId);
@@ -40,12 +43,14 @@ public class AirlineServiceImpl implements AirlineService{
     }
 
     @Override
+    @Transactional
     public void save(Airline theAirline) {
 
         airlineRepository.save(theAirline);
     }
 
     @Override
+    @Transactional
     public void deleteById(int theId) {
 
         airlineRepository.deleteById(theId);

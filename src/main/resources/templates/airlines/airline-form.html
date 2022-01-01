@@ -9,14 +9,14 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <title>Save Airline</title>
+  <title>Aviation fuel invoice</title>
 </head>
 
 <body>
 
 <div class="container">
 
-  <h3>Airline list</h3>
+  <h3>Aviation fuel invoice</h3>
   <hr>
 
   <p class="h4 mb-4">Save Airline</p>
@@ -24,23 +24,23 @@
   <form th:action="@{/airlines/save}"
         th:object="${airline}" method="POST">
 
-    <!-- Add hidden form field to handle update -->
+
     <input type="hidden" th:field="*{id}" />
 
     <input type="text" th:field="*{name}"
-           class="form-control mb-4 col-4" placeholder="Airline name">
+           class="form-control mb-4 col-4" placeholder="Airline name" required>
 
     <input type="text" th:field="*{address}"
-           class="form-control mb-4 col-4" placeholder="Address">
+           class="form-control mb-4 col-4" placeholder="Address" required>
 
-    <input type="text" th:field="*{email}"
-           class="form-control mb-4 col-4" placeholder="Email">
+    <input type="email" th:field="*{email}"
+           class="form-control mb-4 col-4" placeholder="Email" required>
 
-    <input type="text" th:field="*{differential}"
-           class="form-control mb-4 col-4" placeholder="Differential">
+    <input type="number" th:field="*{differential}" value=""
+           class="form-control mb-4 col-4" placeholder="Differential" required>
 
     <input type="text" th:field="*{paymentTerms}"
-           class="form-control mb-4 col-4" placeholder="Payment terms">
+           class="form-control mb-4 col-4" placeholder="Payment terms" required>
 
     <button type="submit" class="btn btn-info col-2">Save</button>
 

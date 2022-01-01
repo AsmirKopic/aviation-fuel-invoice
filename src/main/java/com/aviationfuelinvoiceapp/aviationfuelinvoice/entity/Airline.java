@@ -22,25 +22,27 @@ public class Airline {
     private String email;
 
     @Column(name = "diff")
-    private double differential;
+    private Double differential;
 
     @Column(name = "payment_terms")
-    private int paymentTerms;
+    private Integer paymentTerms;
 
     @OneToMany(mappedBy="airline",
             cascade= {CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH})
     private List<Invoice> invoices;
 
-    public Airline(String name, String address, double differential, int paymentTerms) {
-        this.name = name;
-        this.address = address;
-        this.differential = differential;
-        this.paymentTerms = paymentTerms;
-    }
-
     public Airline() {
 
+    }
+
+    public Airline(String name, String address, String email, Double differential, Integer paymentTerms, List<Invoice> invoices) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.differential = differential;
+        this.paymentTerms = paymentTerms;
+        this.invoices = invoices;
     }
 
     public int getId() {
@@ -67,19 +69,27 @@ public class Airline {
         this.address = address;
     }
 
-    public double getDifferential() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Double getDifferential() {
         return differential;
     }
 
-    public void setDifferential(double differential) {
+    public void setDifferential(Double differential) {
         this.differential = differential;
     }
 
-    public int getPaymentTerms() {
+    public Integer getPaymentTerms() {
         return paymentTerms;
     }
 
-    public void setPaymentTerms(int paymentTerms) {
+    public void setPaymentTerms(Integer paymentTerms) {
         this.paymentTerms = paymentTerms;
     }
 
@@ -91,22 +101,16 @@ public class Airline {
         this.invoices = invoices;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public String toString() {
         return "Airline{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
                 ", differential=" + differential +
                 ", paymentTerms=" + paymentTerms +
+                ", invoices=" + invoices +
                 '}';
     }
 }
