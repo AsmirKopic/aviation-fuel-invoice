@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <title>Aviation fuel invoice</title>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h3>Aviation fuel invoice</h3>
+  <hr>
+
+  <p class="h4 mb-4">New Invoice</p>
+
+        <form th:action="@{/invoices/save}"
+              th:object="${invoice}" method="POST">
+
+          <!-- Form for INVOICE input -->
+
+
+          <input type="hidden" th:field="*{id}" />
+
+          <input type="date" th:field="*{date}"
+                 class="form-control mb-4 col-4" placeholder="Date" required>
+
+          <!-- Dropdown to chose Airlines -->
+          <select class="browser-default custom-select mb-4 col-4" th:field="*{airline_name}">
+            <option selected>Open this select menu</option>
+            <option th:each="airline : ${airlines}"
+                    th:value="${airline.getName}"
+                    th:text="${airline.getName}">
+            </option>
+          </select>
+
+
+          <input type="text" th:field="*{#####}"
+                 class="form-control mb-4 col-4" placeholder="#####" required>
+          <input type="text" th:field="*{#####}"
+                 class="form-control mb-4 col-4" placeholder="#####" required>
+          <input type="text" th:field="*{#####}"
+                 class="form-control mb-4 col-4" placeholder="#####" required>
+          <input type="text" th:field="*{#####}"
+                 class="form-control mb-4 col-4" placeholder="#####" required>
+          <input type="text" th:field="*{#####}"
+                 class="form-control mb-4 col-4" placeholder="#####" required>
+
+
+
+
+
+
+
+          <button type="submit" class="btn btn-info col-2">Save</button>
+
+        </form>
+
+  <hr>
+  <a th:href="@{/airlines/list}">Back to Airline List</a>
+
+</div>
+</body>
+
+</html>

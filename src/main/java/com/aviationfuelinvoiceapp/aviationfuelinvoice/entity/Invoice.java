@@ -9,7 +9,7 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer invoiceId;
+    private Integer id;
 
     @Column(name = "date")
     private String date;
@@ -44,11 +44,11 @@ public class Invoice {
     }
 
     public Integer getInvoiceId() {
-        return invoiceId;
+        return id;
     }
 
-    public void setInvoiceId(Integer invoiceId) {
-        this.invoiceId = invoiceId;
+    public void setInvoiceId(Integer id) {
+        this.id = id;
     }
 
     public String getDate() {
@@ -126,7 +126,7 @@ public class Invoice {
     @Override
     public String toString() {
         return "Invoice{" +
-                "invoiceId=" + invoiceId +
+                "invoiceId=" + id +
                 ", date='" + date + '\'' +
                 ", airline=" + airline +
                 ", upliftKg=" + upliftKg +
