@@ -37,6 +37,9 @@
             </option>
           </select>
 
+          <input type="hidden" th:field="*{airline_id}"
+                                th:value="${airline.getAirlineId()}"/>
+
           <input type="number" th:field="*{upliftKg}"
                  class="form-control mb-4 col-4" placeholder="Uplift KG" required>
 

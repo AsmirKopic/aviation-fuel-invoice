@@ -15,7 +15,7 @@ public class Invoice {
     private String date;
 
     @ManyToOne
-    @JoinColumn(name="airline_id", nullable=false)
+    @JoinColumn(name="airline_id")
     private Airline airline;
 
     @Column(name = "airline_name")
