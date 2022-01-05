@@ -24,9 +24,6 @@
         <form th:action="@{/invoices/save}"
               th:object="${invoice}" method="POST">
 
-          <!-- Form for INVOICE input -->
-
-
           <input type="hidden" th:field="*{id}" />
 
           <input type="date" th:field="*{date}"
@@ -34,30 +31,33 @@
 
           <!-- Dropdown to chose Airlines -->
           <select class="browser-default custom-select mb-4 col-4" th:field="*{airline_name}">
-            <option selected>Open this select menu</option>
+            <option selected>Select menu</option>
             <option th:each="airline : ${airlines}"
                     th:value="${airline.getName}"
                     th:text="${airline.getName}">
             </option>
           </select>
 
+          <input type="number" th:field="*{upliftKg}"
+                 class="form-control mb-4 col-4" placeholder="Uplift KG" required>
 
-          <input type="text" th:field="*{#####}"
-                 class="form-control mb-4 col-4" placeholder="#####" required>
-          <input type="text" th:field="*{#####}"
-                 class="form-control mb-4 col-4" placeholder="#####" required>
-          <input type="text" th:field="*{#####}"
-                 class="form-control mb-4 col-4" placeholder="#####" required>
-          <input type="text" th:field="*{#####}"
-                 class="form-control mb-4 col-4" placeholder="#####" required>
-          <input type="text" th:field="*{#####}"
-                 class="form-control mb-4 col-4" placeholder="#####" required>
+          <input type="number" th:field="*{upliftLit}"
+                 class="form-control mb-4 col-4" placeholder="Uplift LIT" required>
 
+          <input type="text" th:field="*{ticketNumber}"
+                 class="form-control mb-4 col-4" placeholder="Ticket number" required>
 
+          <input type="text" th:field="*{flightNumber}"
+                 class="form-control mb-4 col-4" placeholder="Flight number" required>
 
+          <input type="text" th:field="*{aircraftRegistration}"
+                 class="form-control mb-4 col-4" placeholder="Aircraft registration number" required>
 
+          <input type="text" th:field="*{aircraftType}"
+                 class="form-control mb-4 col-4" placeholder="Aircraft type" required>
 
-
+          <textarea type="text" th:field="*{authorizationNote}"
+                    class="form-control mb-4 col-4" placeholder="Authorization note" required></textarea>
 
           <button type="submit" class="btn btn-info col-2">Save</button>
 
