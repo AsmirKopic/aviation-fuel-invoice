@@ -3,7 +3,7 @@ package com.aviationfuelinvoiceapp.aviationfuelinvoice.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "invoices")
+@Table(name = "invoices") // need to rename invoices
 public class Invoice {
 
     @Id
@@ -14,8 +14,12 @@ public class Invoice {
     @Column(name = "date")
     private String date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name="airline_id", nullable=false)
     private Airline airline;
+
+    @Column(name = "airline_name")
+    private String airlineName;
 
     @Column(name = "upliftKg")
     private Double upliftKg;
@@ -40,14 +44,13 @@ public class Invoice {
 
 
     public Invoice() {
-
     }
 
-    public Integer getInvoiceId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setInvoiceId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,6 +68,14 @@ public class Invoice {
 
     public void setAirline(Airline airline) {
         this.airline = airline;
+    }
+
+    public String getAirlineName() {
+        return airlineName;
+    }
+
+    public void setAirlineName(String airlineName) {
+        this.airlineName = airlineName;
     }
 
     public Double getUpliftKg() {
@@ -121,21 +132,5 @@ public class Invoice {
 
     public void setAuthorizationNote(String authorizationNote) {
         this.authorizationNote = authorizationNote;
-    }
-
-    @Override
-    public String toString() {
-        return "Invoice{" +
-                "invoiceId=" + id +
-                ", date='" + date + '\'' +
-                ", airline=" + airline +
-                ", upliftKg=" + upliftKg +
-                ", upliftLit=" + upliftLit +
-                ", ticketNumber='" + ticketNumber + '\'' +
-                ", flightNumber='" + flightNumber + '\'' +
-                ", aircraftRegistration='" + aircraftRegistration + '\'' +
-                ", aircraftType='" + aircraftType + '\'' +
-                ", authorizationNote='" + authorizationNote + '\'' +
-                '}';
     }
 }

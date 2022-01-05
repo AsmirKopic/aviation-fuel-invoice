@@ -24,7 +24,7 @@
         <form th:action="@{/airlines/save}"
               th:object="${airline}" method="POST">
 
-          <input type="hidden" th:field="*{id}" />
+          <input type="hidden" th:field="*{airlineId}" />
 
           <input type="text" th:field="*{name}"
                  class="form-control mb-4 col-4" placeholder="Airline name" required>

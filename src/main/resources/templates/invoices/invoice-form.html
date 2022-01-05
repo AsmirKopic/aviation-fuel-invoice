@@ -30,11 +30,10 @@
                  class="form-control mb-4 col-4" placeholder="Date" required>
 
           <!-- Dropdown to chose Airlines -->
-          <select class="browser-default custom-select mb-4 col-4" th:field="*{airline_name}">
-            <option selected>Select menu</option>
+          <select class="browser-default custom-select mb-4 col-4" th:field="*{airlineName}">
             <option th:each="airline : ${airlines}"
-                    th:value="${airline.getName}"
-                    th:text="${airline.getName}">
+                    th:value="${airline.getName()}"
+                    th:text="${airline.getName()}">
             </option>
           </select>
 

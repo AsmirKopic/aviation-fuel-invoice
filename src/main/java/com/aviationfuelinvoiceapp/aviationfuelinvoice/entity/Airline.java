@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="airlines")
+@Table(name="airlines") //need to rename to "airlines"
 public class Airline {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "airline_id")
+    private int airlineId;
 
     @Column(name = "name")
     private String name;
@@ -34,15 +34,15 @@ public class Airline {
     private List<Invoice> invoices;
 
     public Airline() {
-        invoices = new ArrayList<Invoice>();
+
     }
 
-    public int getId() {
-        return id;
+    public int getAirlineId() {
+        return airlineId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAirlineId(int airlineId) {
+        this.airlineId = airlineId;
     }
 
     public String getName() {

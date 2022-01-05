@@ -36,7 +36,7 @@ public class InvoiceController {
        return "invoices/list-invoices";
    }
 
-   @RequestMapping("/showFormForAdd")
+    @RequestMapping("/showFormForAdd")
     public String showFormForAdd(Model theModel){
 
         Invoice theInvoice = new Invoice();
