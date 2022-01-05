@@ -3,7 +3,7 @@ package com.aviationfuelinvoiceapp.aviationfuelinvoice.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "invoice")
+@Table(name = "invoices")
 public class Invoice {
 
     @Id
@@ -14,9 +14,7 @@ public class Invoice {
     @Column(name = "date")
     private String date;
 
-    @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name="airline_name")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Airline airline;
 
     @Column(name = "upliftKg")
@@ -40,17 +38,6 @@ public class Invoice {
     @Column(name = "authorizationNote")
     private String authorizationNote;
 
-    public Invoice(String date, Airline airline, Double upliftKg, Double upliftLit, String ticketNumber, String flightNumber, String aircraftRegistration, String aircraftType, String authorizationNote) {
-        this.date = date;
-        this.airline = airline;
-        this.upliftKg = upliftKg;
-        this.upliftLit = upliftLit;
-        this.ticketNumber = ticketNumber;
-        this.flightNumber = flightNumber;
-        this.aircraftRegistration = aircraftRegistration;
-        this.aircraftType = aircraftType;
-        this.authorizationNote = authorizationNote;
-    }
 
     public Invoice() {
 

@@ -1,10 +1,11 @@
 package com.aviationfuelinvoiceapp.aviationfuelinvoice.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="airline")
+@Table(name="airlines")
 public class Airline {
 
     @Id
@@ -27,22 +28,13 @@ public class Airline {
     @Column(name = "payment_terms")
     private Integer paymentTerms;
 
-    @OneToMany(mappedBy="airline",
-            cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-                    CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(mappedBy="airline", fetch = FetchType.LAZY,
+               cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+                         CascadeType.DETACH, CascadeType.REFRESH})
     private List<Invoice> invoices;
 
     public Airline() {
-
-    }
-
-    public Airline(String name, String address, String email, Double differential, Integer paymentTerms, List<Invoice> invoices) {
-        this.name = name;
-        this.address = address;
-        this.email = email;
-        this.differential = differential;
-        this.paymentTerms = paymentTerms;
-        this.invoices = invoices;
+        invoices = new ArrayList<Invoice>();
     }
 
     public int getId() {
@@ -103,14 +95,6 @@ public class Airline {
 
     @Override
     public String toString() {
-        return "Airline{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", differential=" + differential +
-                ", paymentTerms=" + paymentTerms +
-                ", invoices=" + invoices +
-                '}';
+        return name;
     }
 }
