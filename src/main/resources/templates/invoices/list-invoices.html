@@ -45,8 +45,8 @@
             <th>Aircraft Type</th>
             <th>Quantity LIT</th>
             <th>Quantity KG</th>
-            <th>Price</th>
-            <th>Total</th>
+            <th>Price (USD/KG)</th>
+            <th>Total (USD)</th>
 
             <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
                 <th>Action</th>
@@ -55,7 +55,7 @@
         </thead>
 
         <tbody>
-        <tr th:each="tempInvoice : ${invoces}">
+        <tr th:each="tempInvoice : ${invoices}">
 
             <td th:text="${tempInvoice.id}" />
             <td th:text="${tempInvoice.airline.getName()}" />
@@ -67,7 +67,8 @@
             <td th:text="${tempInvoice.upliftLit}" />
             <td th:text="${tempInvoice.upliftKg}" />
             <td th:text="${tempInvoice.price}" />
-            <td th:text="${tempInvoice.total}" />
+            <td th:text="${tempInvoice.getTotalPrice()}" />
+
 
             <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
                 <td>

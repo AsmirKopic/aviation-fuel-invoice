@@ -3,7 +3,7 @@ package com.aviationfuelinvoiceapp.aviationfuelinvoice.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "invoices") // need to rename invoices
+@Table(name = "invoices")
 public class Invoice {
 
     @Id
@@ -17,9 +17,6 @@ public class Invoice {
     @ManyToOne
     @JoinColumn(name="airline_id")
     private Airline airline;
-
-    @Column(name = "airline_name")
-    private String airlineName;
 
     @Column(name = "upliftKg")
     private Double upliftKg;
@@ -42,6 +39,11 @@ public class Invoice {
     @Column(name = "authorizationNote")
     private String authorizationNote;
 
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "totalPrice")
+    private Double totalPrice;
 
     public Invoice() {
     }
@@ -68,14 +70,6 @@ public class Invoice {
 
     public void setAirline(Airline airline) {
         this.airline = airline;
-    }
-
-    public String getAirlineName() {
-        return airlineName;
-    }
-
-    public void setAirlineName(String airlineName) {
-        this.airlineName = airlineName;
     }
 
     public Double getUpliftKg() {
@@ -132,5 +126,21 @@ public class Invoice {
 
     public void setAuthorizationNote(String authorizationNote) {
         this.authorizationNote = authorizationNote;
+    }
+
+    public Double getPrice() {
+        return (airline.getDifferential() / 1000);
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getTotalPrice() {
+        return (this.getPrice() * upliftKg);
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

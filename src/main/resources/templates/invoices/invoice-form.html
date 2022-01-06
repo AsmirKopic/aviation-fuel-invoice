@@ -30,15 +30,12 @@
                  class="form-control mb-4 col-4" placeholder="Date" required>
 
           <!-- Dropdown to chose Airlines -->
-          <select class="browser-default custom-select mb-4 col-4" th:field="*{airlineName}">
+          <select class="browser-default custom-select mb-4 col-4" th:field="*{airline}">
             <option th:each="airline : ${airlines}"
-                    th:value="${airline.getName()}"
+                    th:value="${airline.getAirlineId}"
                     th:text="${airline.getName()}">
             </option>
           </select>
-
-          <input type="hidden" th:field="*{airline_id}"
-                                th:value="${airline.getAirlineId()}"/>
 
           <input type="number" th:field="*{upliftKg}"
                  class="form-control mb-4 col-4" placeholder="Uplift KG" required>
@@ -59,7 +56,7 @@
                  class="form-control mb-4 col-4" placeholder="Aircraft type" required>
 
           <textarea type="text" th:field="*{authorizationNote}"
-                    class="form-control mb-4 col-4" placeholder="Authorization note" required></textarea>
+                    class="form-control mb-4 col-4" placeholder="Authorization note"></textarea>
 
           <button type="submit" class="btn btn-info col-2">Save</button>
 
