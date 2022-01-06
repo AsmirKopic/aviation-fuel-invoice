@@ -42,9 +42,13 @@
             <th>Differential</th>
             <th>Payment terms</th>
 
+<!-- authorized view
             <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
                 <th>Action</th>
             </div>
+
+            -->
+            <th>Actions</th>
         </tr>
         </thead>
 
@@ -57,23 +61,23 @@
             <td th:text="${tempAirline.differential}" />
             <td th:text="${tempAirline.paymentTerms}" />
 
-            <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
-
+       <!--     <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">   -->
+            <div>
                 <td>
-                    <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+                    <div>
 
                         <!-- Add "update" button/link -->
-                        <a th:href="@{/airlines/showFormForUpdate(airlineId=${tempAirline.id})}"
+                        <a th:href="@{/airlines/showFormForUpdate(airlineId=${tempAirline.airlineId})}"
                            class="btn btn-info btn-sm">
                             Update
                         </a>
 
                     </div>
 
-                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <div>
 
                         <!-- Add "delete" button/link -->
-                        <a th:href="@{/airlines/delete(airlinesId=${tempAirline.id})}"
+                        <a th:href="@{/airlines/delete(airlineId=${tempAirline.airlineId})}"
                            class="btn btn-danger btn-sm"
                            onclick="if (!(confirm('Are you sure you want to delete this airline?'))) return false">
                             Delete

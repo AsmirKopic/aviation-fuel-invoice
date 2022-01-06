@@ -48,6 +48,31 @@ public class AirlineController {
         return "redirect:/airlines/list";
     }
 
+    @PostMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("airlineId") int theId, Model theModel) {
+
+        Airline theAirline = airlineService.findById(theId);
+        theModel.addAttribute("airline", theAirline);
+
+        return "/airlines/airline-form";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("airlineId") int theId){
+        airlineService.deleteById(theId);
+
+        return "redirect:/airlines/list";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("airlineName") String airlineName, Model theModel){
+
+        List<Airline> result = airlineService.searchByName(airlineName);
+        theModel.addAttribute("airlines", result);
+
+        return "airlines/list-airlines";
+
+    }
 
 
 }

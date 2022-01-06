@@ -14,5 +14,7 @@ public interface AirlineService {
 
     public void deleteById(int theId);
 
+    public List<Airline> searchByName(String name);
+
 
 }
