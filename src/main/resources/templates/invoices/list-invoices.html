@@ -48,7 +48,7 @@
             <th>Price (USD/KG)</th>
             <th>Total (USD)</th>
 
-            <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+            <div> <!-- sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN') "-->
                 <th>Action</th>
             </div>
         </tr>
@@ -70,9 +70,9 @@
             <td th:text="${tempInvoice.getTotalPrice()}" />
 
 
-            <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+            <div > <!-- sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')"-->
                 <td>
-                    <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+                    <div > <!--sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')" -->
                         <!-- Add "update" button/link -->
                         <a th:href="@{/invoices/showFormForUpdate(invoiceId=${tempInvoice.id})}"
                            class="btn btn-info btn-sm">
@@ -80,7 +80,7 @@
                         </a>
                     </div>
 
-                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                    <div > <!--sec:authorize="hasRole('ROLE_ADMIN')" -->
                         <!-- Add "delete" button/link -->
                         <a th:href="@{/invoices/delete(invoiceId=${tempInvoice.id})}"
                            class="btn btn-danger btn-sm"

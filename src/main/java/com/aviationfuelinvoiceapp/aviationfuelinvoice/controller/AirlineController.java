@@ -48,7 +48,7 @@ public class AirlineController {
         return "redirect:/airlines/list";
     }
 
-    @PostMapping("/showFormForUpdate")
+    @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("airlineId") int theId, Model theModel) {
 
         Airline theAirline = airlineService.findById(theId);

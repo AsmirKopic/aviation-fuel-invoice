@@ -7,9 +7,7 @@ import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,5 +53,26 @@ public class InvoiceController {
 
         return "redirect:/invoices/list";
    }
+
+   @GetMapping("/showFormForUpdate")
+   public String showFormForUpdate(@RequestParam("invoiceId") int theId, Model theModel){
+
+        Invoice theInvoice = invoiceService.findByInd(theId);
+        theModel.addAttribute("invoice", theInvoice);
+
+        List<Airline> theAirlines = airlineService.findAll();
+        theModel.addAttribute("airlines", theAirlines);
+
+        return "invoices/invoice-form";
+   }
+
+   @GetMapping("/delete")
+   public String delete(@RequestParam("invoiceId") int theId){
+
+        invoiceService.deleteById(theId);
+
+        return "redirect:/invoices/list";
+   }
+
 
 }
