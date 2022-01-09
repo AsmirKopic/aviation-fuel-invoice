@@ -42,12 +42,11 @@
             <th>Differential</th>
             <th>Payment terms</th>
 
-<!-- authorized view
-            <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
-                <th>Action</th>
-            </div>
-
-            -->
+            <!-- authorized view
+                        <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+                            <th>Action</th>
+                        </div>
+                        -->
             <th>Actions</th>
         </tr>
         </thead>
@@ -61,7 +60,7 @@
             <td th:text="${tempAirline.differential}" />
             <td th:text="${tempAirline.paymentTerms}" />
 
-       <!--     <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">   -->
+            <!--     <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">   -->
             <div>
                 <td>
                     <div>
