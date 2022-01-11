@@ -4,18 +4,41 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
+    <title> Airline list </title>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <title>Aviation fuel invoice</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
 
+<div class="wrapper">
+
+    <div class="sidebar">
+        <h2>AF Logo</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
+        </ul>
+        <div class="social_media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="main_content">
 <div class="container">
 
     <h3>Aviation fuel invoice</h3>
@@ -32,7 +55,7 @@
         <button class="btn btn-success mb-3" type="submit">Search</button>
     </form>
 
-
+    <div class="tableFixHead">
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
@@ -90,6 +113,7 @@
         </tr>
         </tbody>
     </table>
+    </div>
 
     <!-- Add a logout button -->
     <form action="#" th:action="@{/logout}"
@@ -99,6 +123,8 @@
 
     </form>
 
+</div>
+    </div>
 </div>
 
 </body>

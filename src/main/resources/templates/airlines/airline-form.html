@@ -1,39 +1,42 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-  <title> Vertical Menu </title>
+  <title> Airline add form </title>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
 </head>
 <body>
 
-<div class="row">
-  <div class="col-3">
-    <nav class="navbar navbar-light " style="background-color: #e3f2fd;">
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/"> Home </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/airlines/list}"> Airline </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/invoices/list}"> Invoices </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"> About </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+<div class="wrapper">
 
-  <div class="col-9">
+<div class="sidebar">
+  <h2>AF Logo</h2>
+  <ul>
+    <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+    <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+    <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
+    <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+    <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+    <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+    <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
+  </ul>
+  <div class="social_media">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+  <div class="main_content">
 
     <div class="container">
 
@@ -71,7 +74,12 @@
 
     </div>
 
-  </div>
 </div>
+</div>
+
+
+</body>
+
+
 </body>
 </html>

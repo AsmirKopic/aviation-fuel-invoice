@@ -9,35 +9,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="sidebar">
-        <h2>AF Logo</h2>
-        <h2>AVIATION FUEL</h2>
 
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
-            <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
-            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
-            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
-        </ul>
-        <div class="social_media">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
     <div class="main_content">
-        <div class="header">Welcome!! Have a nice day.</div>
 
         <div class="container">
-            <h3>Aviation fuel invoice</h3>
+            <h3>List of Airlines</h3>
             <hr>
             <form th:action="@{/airlines/search}" class="form-inline">
 
@@ -50,7 +30,8 @@
                 <button class="btn btn-success mb-3" type="submit">Search</button>
             </form>
 
-            <table class="table table-bordered table-striped">
+            <div class="tableFixHead">
+            <table class="table table-striped">
                 <thead class="thead-dark" >
                 <tr>
                     <th>Airline Name</th>
@@ -86,9 +67,6 @@
                                    class="btn btn-info btn-sm">
                                     Update
                                 </a>
-                            </div>
-
-                            <div>
                                 <!-- Add "delete" button/link -->
                                 <a th:href="@{/airlines/delete(airlineId=${tempAirline.airlineId})}"
                                    class="btn btn-danger btn-sm"
@@ -96,6 +74,7 @@
                                     Delete
                                 </a>
                             </div>
+
                         </td>
                     </div>
 
@@ -140,6 +119,110 @@
                     <td>@twitter</td>
                     <td>@twitter</td>
                 </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                </tr>
 
 
 
@@ -147,7 +230,7 @@
 
                 </tbody>
             </table>
-
+            </div>
             <!-- Add a logout button -->
             <form action="#" th:action="@{/logout}"
                   method="POST">
