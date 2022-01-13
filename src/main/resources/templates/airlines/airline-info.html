@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> Airline info </title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" href="styles.css"/>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>AF Logo</h2>
+        <ul>
+            <li><a href="/invoices/list"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/airlines/list"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-address-card"></i>About</a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
+        </ul>
+        <div class="social_media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="main_content">
+        <div class="container">
+            <p class="h4 mb-4">Profile</p>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <b>Name</b>
+                    <p th:utext="${airline.name}"/>
+
+                    <b>Address</b>
+                    <p th:utext="${airline.address}"/>
+
+                    <b>Email</b>
+                    <p th:utext="${airline.email}"/>
+
+                    <b>Differential</b>
+                    <p th:utext="${airline.differential}"/>
+
+                    <b>Payment terms</b>
+                    <p th:utext="${airline.paymentTerms}"/>
+                </div>
+
+                <div class="col-sm-8">
+
+                    <div class="tableFixHead">
+                        <table class="table table-bordered table-striped text-center">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>Invoice number</th>
+                                <th>Date</th>
+                                <th>Ticket number</th>
+                                <th>Flight Number</th>
+                                <th>Aircraft Registration</th>
+                                <th>Aircraft Type</th>
+                                <th>Quantity LIT</th>
+                                <th>Quantity KG</th>
+                                <th>Total (USD)</th>
+
+                                <div> <!-- sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN') "-->
+                                    <th>Action</th>
+                                </div>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <!-- Table content here -->
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <a th:href="@{/airlines/list}">Back to Airline List</a>
+
+        </div>
+    </div>
+</div>
+</body>
+
+</body>
+</html>

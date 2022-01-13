@@ -71,7 +71,15 @@ public class AirlineController {
         theModel.addAttribute("airlines", result);
 
         return "airlines/list-airlines";
+    }
 
+    @GetMapping("/showInfo")
+    public String showInfo(@RequestParam("airlineId") int theId, Model theModel) {
+
+        Airline theAirline = airlineService.findById(theId);
+        theModel.addAttribute("airline", theAirline);
+
+        return "/airlines/airline-info";
     }
 
 
