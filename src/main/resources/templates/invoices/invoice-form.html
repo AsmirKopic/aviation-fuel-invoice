@@ -4,8 +4,6 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
-    <title> Airline list </title>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <!-- Required meta tags -->
@@ -18,15 +16,13 @@
 </head>
 
 <body>
-
 <div class="wrapper">
-
     <div class="sidebar">
         <h2>AF Logo</h2>
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
-            <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/airlines/list"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-address-card"></i>About</a></li>
             <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
             <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
             <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
@@ -41,12 +37,7 @@
     <div class="main_content">
 
         <div class="container">
-
-            <h3>Aviation fuel invoice</h3>
-            <hr>
-
             <p class="h4 mb-4">New Invoice</p>
-
             <form th:action="@{/invoices/save}"
                   th:object="${invoice}" method="POST">
 

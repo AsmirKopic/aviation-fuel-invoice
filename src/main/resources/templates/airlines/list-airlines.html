@@ -20,21 +20,13 @@
 </head>
 
 <body>
-
-<!-- top nav with logo and logout -->
-<nav class="navbar navbar-light navbar-fixed-top" style="background-color: #4b4276;">
-    <a class="navbar-brand" href="#">
-        <img src="C:\Users\asmir\Desktop\aviation fuel app\logo.png" width="250" height="75" alt="">
-    </a>
-</nav>
-
 <div class="wrapper">
-
     <div class="sidebar">
+        <h2>AF Logo</h2>
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
-            <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/airlines/list"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-address-card"></i>About</a></li>
             <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
             <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
             <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
@@ -87,7 +79,14 @@
                     <tbody>
                     <tr th:each="tempAirline : ${airlines}">
 
-                        <td th:text="${tempAirline.name}"/>
+                       <!-- <td th:text="${tempAirline.name}"/> -->
+                        <div>
+                            <td>
+                                <a th:href="@{/airlines/showFormForUpdate(airlineId=${tempAirline.airlineId})}"
+                                   class="btn btn-link" th:text="${tempAirline.name}" />
+                            </td>
+                        </div>
+
                         <td th:text="${tempAirline.address}"/>
                         <td th:text="${tempAirline.email}"/>
                         <td th:text="${tempAirline.differential}"/>
@@ -102,15 +101,14 @@
                                        class="btn btn-info btn-sm">
                                         Update
                                     </a>
+                                    |
                                     <!-- Add "delete" button/link -->
                                     <a th:href="@{/airlines/delete(airlineId=${tempAirline.airlineId})}"
                                        class="btn btn-danger btn-sm"
                                        onclick="if (!(confirm('Are you sure you want to delete this airline?'))) return false">
                                         Delete
                                     </a>
-
                                 </div>
-
                             </td>
                         </div>
                     </tr>

@@ -19,21 +19,13 @@
 
 </head>
 <body>
-
-<!-- top nav with logo and logout -->
-<nav class="navbar navbar-light" style="background-color: #4b4276;">
-    <a class="navbar-brand" href="#">
-        <img src="C:\Users\asmir\Desktop\aviation fuel app\logo.png" width="250" height="75" alt="">
-    </a>
-</nav>
-
 <div class="wrapper">
-
     <div class="sidebar">
+        <h2>AF Logo</h2>
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
-            <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/airlines/list"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-address-card"></i>About</a></li>
             <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
             <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
             <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
@@ -48,10 +40,7 @@
 
     <div class="main_content">
         <div class="container">
-            <h3>Aviation fuel invoice</h3>
-            <hr>
-
-            <p class="h4 mb-4">Add new Airline company (Client)</p>
+            <p class="h4 mb-4">Add new Airline company</p>
 
             <form method="POST"
                   th:action="@{/airlines/save}" th:object="${airline}">
