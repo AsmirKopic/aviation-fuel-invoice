@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
 
-    @Query("select i from Invoice i where i.airline_id = ?1")
+    @Query(value = "SELECT * FROM invoices WHERE airline_id = ?1", nativeQuery = true)
     List<Invoice> findByAirlineId(int theId);
 }
