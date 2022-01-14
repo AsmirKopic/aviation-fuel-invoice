@@ -1,7 +1,9 @@
 package com.aviationfuelinvoiceapp.aviationfuelinvoice.controller;
 
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
+import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Invoice;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.AirlineService;
+import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +16,12 @@ import java.util.List;
 public class AirlineController {
 
     private AirlineService airlineService;
+    private InvoiceService invoiceService;
 
     @Autowired
-    public AirlineController(AirlineService airlineService) {
+    public AirlineController(AirlineService airlineService, InvoiceService invoiceService) {
         this.airlineService = airlineService;
+        this.invoiceService = invoiceService;
     }
 
     @GetMapping("/list")
@@ -78,6 +82,9 @@ public class AirlineController {
 
         Airline theAirline = airlineService.findById(theId);
         theModel.addAttribute("airline", theAirline);
+
+        List<Invoice> invoiceList = invoiceService.findByAirlineId(theId);
+        theModel.addAttribute("invoices", invoiceList);
 
         return "/airlines/airline-info";
     }

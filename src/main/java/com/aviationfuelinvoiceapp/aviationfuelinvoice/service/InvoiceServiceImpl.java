@@ -25,7 +25,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    public Invoice findByInd(int theId) {
+    public Invoice findById(int theId) {
 
         Optional<Invoice> result = invoiceRepository.findById(theId);
         Invoice theInvoice = null;
@@ -48,5 +48,11 @@ public class InvoiceServiceImpl implements InvoiceService {
     public void deleteById(int theId) {
 
         invoiceRepository.deleteById(theId);
+    }
+
+    @Override
+    public List<Invoice> findByAirlineId(int theId) {
+
+        return invoiceRepository.findByAirlineId(theId);
     }
 }

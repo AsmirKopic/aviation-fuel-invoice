@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -57,7 +56,7 @@ public class InvoiceController {
    @GetMapping("/showFormForUpdate")
    public String showFormForUpdate(@RequestParam("invoiceId") int theId, Model theModel){
 
-        Invoice theInvoice = invoiceService.findByInd(theId);
+        Invoice theInvoice = invoiceService.findById(theId);
         theModel.addAttribute("invoice", theInvoice);
 
         List<Airline> theAirlines = airlineService.findAll();
