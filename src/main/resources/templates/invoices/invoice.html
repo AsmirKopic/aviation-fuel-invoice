@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+    <title>Invoice</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="invoicestyle.css"/>
+    <link rel="stylesheet" th:href="@{/css/invoicestyle.css}"/>
+
+</head>
+<body>
+
+<div class="container bootstrap snippets bootdeys">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default invoice" id="invoice">
+                <div class="panel-body">
+                    <div class="invoice-ribbon"><div class="ribbon-inner">PAID</div></div>
+                    <div class="row">
+
+                        <div class="col-sm-6 top-left">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+
+                        <div class="col-sm-6 top-right">
+                            <h3 class="marginright">INVOICE-1234578</h3>
+                            <span class="marginright">14 April 2014</span>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="cart_row d-flex justify-content-between">
+                        <div class="col-xs-4 to">
+                            <p class="lead marginbottom">To : John Doe</p>
+                            <p>425 Market Street</p>
+                            <p>Suite 2200, San Francisco</p>
+                            <p>Phone: 415-676-3600</p>
+                            <p>Email: john@doe.com</p>
+                        </div>
+
+                        <div class="col-xs-4 text-right payment-details">
+                            <p class="lead marginbottom payment-info">Payment details</p>
+                            <p>Date: 14 April 2014</p>
+                            <p>VAT: DK888-777 </p>
+                            <p>Total Amount: $1019</p>
+                            <p>Account Name: Flatter</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row table-row">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="text-center" style="width:5%">#</th>
+                                <th style="width:50%">Item</th>
+                                <th class="text-right" style="width:15%">Quantity</th>
+                                <th class="text-right" style="width:15%">Unit Price</th>
+                                <th class="text-right" style="width:15%">Total Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td>Flatter Theme</td>
+                                <td class="text-right">10</td>
+                                <td class="text-right">$18</td>
+                                <td class="text-right">$180</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">2</td>
+                                <td>Flat Icons</td>
+                                <td class="text-right">6</td>
+                                <td class="text-right">$59</td>
+                                <td class="text-right">$254</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">3</td>
+                                <td>Wordpress version</td>
+                                <td class="text-right">4</td>
+                                <td class="text-right">$95</td>
+                                <td class="text-right">$285</td>
+                            </tr>
+                            <tr class="last-row">
+                                <td class="text-center">4</td>
+                                <td>Server Deployment</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">$300</td>
+                                <td class="text-right">$300</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="cart_row d-flex justify-content-between">
+                        <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
+                            Extra note such as company or payment information...
+                        </div>
+
+                        <div class="col-12 col-sm-5 text-right text-grey text-90 order-first order-sm-last">
+                            <div class="row my-2">
+                                <div class="col-7 text-right">
+                                    SubTotal
+                                </div>
+                                <div class="col-5">
+                                    <span class="text-120 text-secondary-d1">$2,250</span>
+                                </div>
+                            </div>
+
+                            <div class="row my-2">
+                                <div class="col-7 text-right">
+                                    Tax (10%)
+                                </div>
+                                <div class="col-5">
+                                    <span class="text-110 text-secondary-d1">$225</span>
+                                </div>
+                            </div>
+
+                            <div class="row my-2">
+                                <div class="col-7 text-right">
+                                    Total amount
+                                </div>
+                                <div class="col-5">
+                                    <span class="text-120 text-secondary-d1">$2,250</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div>
+                        <a href="#" class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0">Pay Now</a>
+                        <button class="btn btn-success" id="invoice-print"><i class="fa fa-print"></i> Print Invoice</button>
+                        <button class="btn btn-danger"><i class="fa fa-envelope-o"></i> Mail Invoice</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
