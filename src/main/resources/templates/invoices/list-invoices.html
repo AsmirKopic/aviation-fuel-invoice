@@ -81,7 +81,13 @@
                     <tbody>
                     <tr th:each="tempInvoice : ${invoices}">
 
-                        <td th:text="${tempInvoice.id}"/>
+                        <div>
+                            <td>
+                                <a th:href="@{/invoices/showInvoice(invoiceId=${tempInvoice.id})}"
+                                   class="btn btn-link" th:text="${tempInvoice.id}" />
+                            </td>
+                        </div>
+
                         <td th:text="${tempInvoice.airline.getName()}"/>
                         <td th:text="${tempInvoice.date}"/>
                         <td th:text="${tempInvoice.ticketNumber}"/>

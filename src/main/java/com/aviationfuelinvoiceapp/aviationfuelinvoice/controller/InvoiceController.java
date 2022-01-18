@@ -73,5 +73,15 @@ public class InvoiceController {
         return "redirect:/invoices/list";
    }
 
+   @GetMapping("/showInvoice")
+   public String showInvoice(@RequestParam("invoiceId") int theId, Model theModel){
+
+        Invoice theInvoice = invoiceService.findById(theId);
+        Airline theAirline = airlineService.findById(theInvoice.getAirline().getAirlineId());
+        theModel.addAttribute("invoice", theInvoice);
+        theModel.addAttribute("airline", theAirline);
+
+        return "invoices/invoice";
+   }
 
 }

@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-
+    <title>Invoice</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -16,15 +16,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-
-
-
-    <title>Invoice</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="invoicestyle.css"/>
     <link rel="stylesheet" th:href="@{/css/invoicestyle.css}"/>
 
 </head>
+
+
+                   ///            <p th:utext="${airline.name}"/>
+
 <body>
 
 <div class="container bootstrap snippets bootdeys">
@@ -32,7 +32,7 @@
         <div class="col-sm-12">
             <div class="panel panel-default invoice" id="invoice">
                 <div class="panel-body">
-                    <div class="invoice-ribbon"><div class="ribbon-inner">PAID</div></div>
+
                     <div class="row">
 
                         <div class="col-sm-6 top-left">
@@ -40,27 +40,24 @@
                         </div>
 
                         <div class="col-sm-6 top-right">
-                            <h3 class="marginright">INVOICE-1234578</h3>
-                            <span class="marginright">14 April 2014</span>
+                            <h3 class="marginright">INVOICE- <span th:text="${invoice.id}"></span></h3>
+                            <span class="marginright" th:text="${invoice.date}"/>
                         </div>
 
                     </div>
                     <hr>
                     <div class="cart_row d-flex justify-content-between">
                         <div class="col-xs-4 to">
-                            <p class="lead marginbottom">To : John Doe</p>
-                            <p>425 Market Street</p>
-                            <p>Suite 2200, San Francisco</p>
-                            <p>Phone: 415-676-3600</p>
-                            <p>Email: john@doe.com</p>
+                            <p class="lead marginbottom">To : <span th:text="${invoice.airline.getName()}"/></p>
+                            <p><span th:text="${invoice.airline.getAddress()}"/></p>
+                            <p><span th:text="${invoice.airline.getEmail()}"/></p>
                         </div>
 
                         <div class="col-xs-4 text-right payment-details">
                             <p class="lead marginbottom payment-info">Payment details</p>
-                            <p>Date: 14 April 2014</p>
-                            <p>VAT: DK888-777 </p>
-                            <p>Total Amount: $1019</p>
-                            <p>Account Name: Flatter</p>
+                            <p><span th:text="${invoice.date}"/></p>
+                            <p>Total Amount: <span th:text="${invoice.getTotalPrice()}"/></p>
+                            <p>Account Name: <span th:text="${invoice.airline.getName()}"/></p>
                         </div>
                     </div>
 
@@ -70,7 +67,7 @@
                             <thead>
                             <tr>
                                 <th class="text-center" style="width:5%">#</th>
-                                <th style="width:50%">Item</th>
+                                <th style="width:50%">Product</th>
                                 <th class="text-right" style="width:15%">Quantity</th>
                                 <th class="text-right" style="width:15%">Unit Price</th>
                                 <th class="text-right" style="width:15%">Total Price</th>
@@ -127,7 +124,7 @@
 
                             <div class="row my-2">
                                 <div class="col-7 text-right">
-                                    Tax (10%)
+                                    Tax (0%)
                                 </div>
                                 <div class="col-5">
                                     <span class="text-110 text-secondary-d1">$225</span>
