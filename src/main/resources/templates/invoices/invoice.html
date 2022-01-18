@@ -21,10 +21,6 @@
     <link rel="stylesheet" th:href="@{/css/invoicestyle.css}"/>
 
 </head>
-
-
-                   ///            <p th:utext="${airline.name}"/>
-
 <body>
 
 <div class="container bootstrap snippets bootdeys">
@@ -61,46 +57,24 @@
                         </div>
                     </div>
 
-
                     <div class="row table-row">
                         <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th class="text-center" style="width:5%">#</th>
-                                <th style="width:50%">Product</th>
+                                <th style="width:45%">Product</th>
                                 <th class="text-right" style="width:15%">Quantity</th>
-                                <th class="text-right" style="width:15%">Unit Price</th>
+                                <th class="text-right" style="width:20%">Unit Price ($/MT)</th>
                                 <th class="text-right" style="width:15%">Total Price</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td class="text-center">1</td>
-                                <td>Flatter Theme</td>
-                                <td class="text-right">10</td>
-                                <td class="text-right">$18</td>
-                                <td class="text-right">$180</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">2</td>
-                                <td>Flat Icons</td>
-                                <td class="text-right">6</td>
-                                <td class="text-right">$59</td>
-                                <td class="text-right">$254</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">3</td>
-                                <td>Wordpress version</td>
-                                <td class="text-right">4</td>
-                                <td class="text-right">$95</td>
-                                <td class="text-right">$285</td>
-                            </tr>
-                            <tr class="last-row">
-                                <td class="text-center">4</td>
-                                <td>Server Deployment</td>
-                                <td class="text-right">1</td>
-                                <td class="text-right">$300</td>
-                                <td class="text-right">$300</td>
+                                <td>JET A1 - Aviation fuel</td>
+                                <td class="text-right">kg <span th:text="${invoice.upliftKg}"/></td>
+                                <td class="text-right">$ <span th:text="${invoice.price}"/></td>
+                                <td class="text-right">$ <span th:text="${invoice.getTotalPrice()}"/></td>
                             </tr>
                             </tbody>
                         </table>
@@ -109,7 +83,11 @@
 
                     <div class="cart_row d-flex justify-content-between">
                         <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
-                            Extra note such as company or payment information...
+                            <p>Ticket No.: <span th:text="${invoice.ticketNumber}"/></p>
+                            <p>Flight No.: <span th:text="${invoice.flightNumber}"/></p>
+                            <p>Aircraft Reg.: <span th:text="${invoice.aircraftRegistration}"/></p>
+                            <p>Aircraft Type: <span th:text="${invoice.aircraftType}"/></p>
+                            <p>Authorization note: <span th:text="${invoice.authorizationNote}"/></p>
                         </div>
 
                         <div class="col-12 col-sm-5 text-right text-grey text-90 order-first order-sm-last">
@@ -118,7 +96,7 @@
                                     SubTotal
                                 </div>
                                 <div class="col-5">
-                                    <span class="text-120 text-secondary-d1">$2,250</span>
+                                    <span class="text-120 text-secondary-d1">$ <span th:text="${invoice.getTotalPrice()}"/></span>
                                 </div>
                             </div>
 
@@ -127,7 +105,7 @@
                                     Tax (0%)
                                 </div>
                                 <div class="col-5">
-                                    <span class="text-110 text-secondary-d1">$225</span>
+                                    <span class="text-110 text-secondary-d1">N/A</span>
                                 </div>
                             </div>
 
@@ -136,7 +114,7 @@
                                     Total amount
                                 </div>
                                 <div class="col-5">
-                                    <span class="text-120 text-secondary-d1">$2,250</span>
+                                    <span class="text-120 text-secondary-d1">$ <span th:text="${invoice.getTotalPrice()}"/></span>
                                 </div>
                             </div>
                         </div>
@@ -144,11 +122,10 @@
                     <hr />
 
                     <div>
-                        <a href="#" class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0">Pay Now</a>
+                        <a href="#" class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0">X Close</a>
                         <button class="btn btn-success" id="invoice-print"><i class="fa fa-print"></i> Print Invoice</button>
                         <button class="btn btn-danger"><i class="fa fa-envelope-o"></i> Mail Invoice</button>
                     </div>
-
 
                 </div>
             </div>
