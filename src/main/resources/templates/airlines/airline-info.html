@@ -40,27 +40,33 @@
 
     <div class="main_content">
         <div class="container">
-            <p class="h4 mb-4">Profile</p>
 
-            <div class="row">
-                <div class="col-sm-4">
+            <p class="h4 mb-4">Company profile</p>
+
+            <div class="d-flex justify-content-between">
+                <div class="p-2">
                     <b>Name</b>
                     <p th:utext="${airline.name}"/>
-
-                    <b>Address</b>
-                    <p th:utext="${airline.address}"/>
-
-                    <b>Email</b>
-                    <p th:utext="${airline.email}"/>
-
-                    <b>Differential</b>
-                    <p th:utext="${airline.differential}"/>
-
-                    <b>Payment terms</b>
-                    <p th:utext="${airline.paymentTerms}"/>
                 </div>
+                <div class="p-2">
+                    <b>Address</b>
+                    <p th:utext="${airline.address}"> Address 25, City</p>
+                </div>
+                <div class="p-2">
+                    <b>Email</b>
+                    <p th:utext="${airline.email}"> email@emial.com</p>
+                </div>
+                <div class="p-2">
+                    <b>Differential</b>
+                    <p th:utext="${airline.differential}">245</p>
+                </div>
+                <div class="p-2">
+                    <b>Payment terms</b>
+                    <p th:utext="${airline.paymentTerms}">35</p>
+                </div>
+            </div>
 
-                <div class="col-sm-8">
+            <p class="h4 mb-4">List of invoices</p>
 
                     <div class="tableFixHead">
                         <table class="table table-bordered table-striped text-center">
@@ -122,9 +128,6 @@
                     </div>
                 </div>
             </div>
-
-            <a th:href="@{/airlines/list}">Back to Airline List</a>
-
         </div>
     </div>
 </div>
