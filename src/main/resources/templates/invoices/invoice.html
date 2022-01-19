@@ -44,7 +44,7 @@
                     <hr>
                     <div class="cart_row d-flex justify-content-between">
                         <div class="col-xs-4 to">
-                            <p class="lead marginbottom">To : <span th:text="${invoice.airline.getName()}"/></p>
+                            <p class="lead marginbottom"><span th:text="${invoice.airline.getName()}" style="font-weight: bold;"/></p>
                             <p><span th:text="${invoice.airline.getAddress()}"/></p>
                             <p><span th:text="${invoice.airline.getEmail()}"/></p>
                         </div>
@@ -125,6 +125,8 @@
                         <a href="#" class="btn btn-info btn-bold px-4 float-right mt-3 mt-lg-0">X Close</a>
                         <button class="btn btn-success" id="invoice-print"><i class="fa fa-print"></i> Print Invoice</button>
                         <button class="btn btn-danger"><i class="fa fa-envelope-o"></i> Mail Invoice</button>
+                        <a th:href="@{/invoices/pdf}" class="btn btn-success">Export data into PDF
+                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
                     </div>
 
                 </div>

@@ -4,11 +4,19 @@ import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Invoice;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.AirlineService;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.InvoiceService;
+import com.aviationfuelinvoiceapp.aviationfuelinvoice.view.InvoiceDataPdfExport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.context.WebContext;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -79,9 +87,20 @@ public class InvoiceController {
         Invoice theInvoice = invoiceService.findById(theId);
         Airline theAirline = airlineService.findById(theInvoice.getAirline().getAirlineId());
         theModel.addAttribute("invoice", theInvoice);
-        theModel.addAttribute("airline", theAirline);
+        // theModel.addAttribute("airline", theAirline);
 
         return "invoices/invoice";
    }
+
+    @GetMapping("/pdf")
+    public ModelAndView exportToPdf() {
+        ModelAndView mav = new ModelAndView();
+        mav.setView(new InvoiceDataPdfExport());
+        //read data from DB
+        Invoice theInvoice = invoiceService.findById(13);
+        //send to pdfImpl class
+        mav.addObject("invoice", theInvoice);
+        return mav;
+    }
 
 }
