@@ -40,33 +40,36 @@
 
     <div class="main_content">
         <div class="container">
-            <p class="h4 mb-4">Add new Airline company</p>
+            <p class="h4 mb-4">Add new company</p>
+            <hr>
 
             <form method="POST"
                   th:action="@{/airlines/save}" th:object="${airline}">
                 <input th:field="*{airlineId}" type="hidden"/>
 
-                <input class="form-control mb-4 col-4" placeholder="Airline name"
+                <input class="form-control mb-4 col-6" placeholder="Airline name"
                        required th:field="*{name}" type="text">
 
-                <input class="form-control mb-4 col-4" placeholder="Address"
+                <input class="form-control mb-4 col-6" placeholder="Address"
                        required th:field="*{address}" type="text">
 
-                <input class="form-control mb-4 col-4" placeholder="Email"
+                <input class="form-control mb-4 col-6" placeholder="Email"
                        required th:field="*{email}" type="email">
 
-                <input class="form-control mb-4 col-4" placeholder="Differential" required
+                <input class="form-control mb-4 col-6" placeholder="Differential" required
                        th:field="*{differential}" type="number" value="">
 
-                <input class="form-control mb-4 col-4" placeholder="Payment terms"
+                <input class="form-control mb-4 col-6" placeholder="Payment terms"
                        required th:field="*{paymentTerms}" type="text">
 
-                <button class="btn btn-info col-2" type="submit">Save</button>
+                <button class="btn btn-info col-2" type="submit"><i class="fas fa-save"></i> Save</button>
 
             </form>
 
-            <hr>
-            <a th:href="@{/airlines/list}">Back to Airline List</a>
+            <form>
+                <input type="button" value="< Back" onclick="history.back()"
+                       class="btn btn-info btn-bold px-4 float-right mt-4">
+            </form>
 
         </div>
 

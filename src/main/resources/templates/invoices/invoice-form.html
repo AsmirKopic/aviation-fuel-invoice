@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 
 <body>
@@ -38,16 +39,18 @@
 
         <div class="container">
             <p class="h4 mb-4">New Invoice</p>
+            <hr>
+
             <form th:action="@{/invoices/save}"
                   th:object="${invoice}" method="POST">
 
                 <input type="hidden" th:field="*{id}"/>
 
                 <input type="date" th:field="*{date}"
-                       class="form-control mb-4 col-4" placeholder="Date" required>
+                       class="form-control mb-4 col-6" placeholder="Date" required>
 
                 <!-- Dropdown to chose Airlines -->
-                <select class="browser-default custom-select mb-4 col-4" th:field="*{airline}">
+                <select class="browser-default custom-select mb-4 col-6" th:field="*{airline}">
                     <option th:each="airline : ${airlines}"
                             th:value="${airline.getAirlineId}"
                             th:text="${airline.getName()}">
@@ -55,32 +58,34 @@
                 </select>
 
                 <input type="number" th:field="*{upliftKg}"
-                       class="form-control mb-4 col-4" placeholder="Uplift KG" required>
+                       class="form-control mb-4 col-6" placeholder="Uplift KG" required>
 
                 <input type="number" th:field="*{upliftLit}"
-                       class="form-control mb-4 col-4" placeholder="Uplift LIT" required>
+                       class="form-control mb-4 col-6" placeholder="Uplift LIT" required>
 
                 <input type="text" th:field="*{ticketNumber}"
-                       class="form-control mb-4 col-4" placeholder="Ticket number" required>
+                       class="form-control mb-4 col-6" placeholder="Ticket number" required>
 
                 <input type="text" th:field="*{flightNumber}"
-                       class="form-control mb-4 col-4" placeholder="Flight number" required>
+                       class="form-control mb-4 col-6" placeholder="Flight number" required>
 
                 <input type="text" th:field="*{aircraftRegistration}"
-                       class="form-control mb-4 col-4" placeholder="Aircraft registration number" required>
+                       class="form-control mb-4 col-6" placeholder="Aircraft registration number" required>
 
                 <input type="text" th:field="*{aircraftType}"
-                       class="form-control mb-4 col-4" placeholder="Aircraft type" required>
+                       class="form-control mb-4 col-6" placeholder="Aircraft type" required>
 
                 <textarea type="text" th:field="*{authorizationNote}"
-                          class="form-control mb-4 col-4" placeholder="Authorization note"></textarea>
+                          class="form-control mb-4 col-6" placeholder="Authorization note"></textarea>
 
-                <button type="submit" class="btn btn-info col-2">Save</button>
+                <button type="submit" class="btn btn-info col-2"><i class="fas fa-save"></i> Save</button>
 
             </form>
 
             <hr>
-            <a th:href="@{/airlines/list}">Back to Airline List</a>
+            <form>
+                <input type="button" value="< Back" onclick="history.back()" class="btn btn-info btn-bold px-4 float-right">
+            </form>
 
         </div>
     </div>
