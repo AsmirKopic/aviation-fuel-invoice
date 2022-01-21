@@ -8,16 +8,33 @@ import java.util.List;
 
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
 
+    /*
+     * Query by airline id
+     */
+
     @Query(value = "SELECT * FROM invoices WHERE airline_id = ?1", nativeQuery = true)
     List<Invoice> findByAirlineId(int theId);
 
+    @Query(value = "SELECT SUM(upliftLit) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
+    double sumLitByAirlineId(int theId);
 
+    @Query(value = "SELECT SUM(upliftKg) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
+    double sumKgByAirlineId(int theId);
 
+    @Query(value = "SELECT SUM(totalPrice) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
+    double sumValueByAirlineId(int theId);
 
-    //fix query
-    @Query(value = "SELECT SUM(total_days) FROM MyEntity", nativeQuery = true)
-    Double sumLitByAirlineId(int theId);
+    /*
+     *  Query for total sum
+     */
 
+    @Query(value = "SELECT SUM(upliftLit) FROM invoices", nativeQuery = true)
+    double sumTotalLit();
 
+    @Query(value = "SELECT SUM(upliftKg) FROM invoices", nativeQuery = true)
+    double sumTotalKg();
+
+    @Query(value = "SELECT SUM(totalPrice) FROM invoices", nativeQuery = true)
+    double sumTotalValue();
 
 }

@@ -17,6 +17,17 @@ public interface InvoiceService {
 
     public List<Invoice> findByAirlineId(int theId);
 
+    public double sumLitByAirlineId(int theId);
+
+    public double sumKgByAirlineId(int theId);
+
+    public double sumValueByAirlineId(int theId);
+
+    public double sumTotalLit();
+
+    public double sumTotalKg();
+
+    public double sumTotalValue();
 }
 
 

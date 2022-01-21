@@ -40,19 +40,47 @@ public class InvoiceServiceImpl implements InvoiceService {
 
     @Override
     public void save(Invoice theInvoice) {
-
         invoiceRepository.save(theInvoice);
     }
 
     @Override
     public void deleteById(int theId) {
-
         invoiceRepository.deleteById(theId);
     }
 
     @Override
     public List<Invoice> findByAirlineId(int theId) {
-
         return invoiceRepository.findByAirlineId(theId);
     }
+
+    @Override
+    public double sumLitByAirlineId(int theId) {
+        return sumLitByAirlineId(theId);
+    }
+
+    @Override
+    public double sumKgByAirlineId(int theId) {
+        return sumKgByAirlineId(theId);
+    }
+
+    @Override
+    public double sumValueByAirlineId(int theId) {
+        return sumValueByAirlineId(theId);
+    }
+
+    @Override
+    public double sumTotalLit() {
+        return sumTotalLit();
+    }
+
+    @Override
+    public double sumTotalKg() {
+        return sumTotalKg();
+    }
+
+    @Override
+    public double sumTotalValue() {
+        return sumTotalValue();
+    }
+
 }
