@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <title> Customers </title>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" href="styles.css"/>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+        <h2>AF Logo</h2>
+        <ul>
+            <li><a href="/invoices/list"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/airlines/list"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="/invoices/list"><i class="fas fa-address-card"></i>About</a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
+        </ul>
+        <div class="social_media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+         <div class="main_content">
+             <div class="container">
+
+            <h3>Dashboard</h3>
+            <hr>
+                 <h5>Options</h5>
+                 <hr>
+
+                <a th:href="@{/airlines/showFormForAdd}" class="btn btn-success mb-3"><i class="fas fa-user-plus"></i> New customer</a>
+                 <a th:href="@{/invoices/showFormForAdd}" class="btn btn-success mb-3"><i class="fas fa-plus"></i> New invoice</a>
+
+            <h5>Overview</h5>
+            <hr>
+
+            <div class="tableFixHead">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>Airline Name</th>
+                        <th>Uplift LIT</th>
+                        <th>Uplift KG</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="tempAirline : ${airlines}">
+
+                       <!-- <td th:text="${tempAirline.name}"/> -->
+                        <div>
+                            <td>
+                                <a th:href="@{/airlines/showInfo(airlineId=${tempAirline.airlineId})}"
+                                   class="btn btn-link" th:text="${tempAirline.name}" />
+                            </td>
+                        </div>
+
+                        <td th:text="${tempAirline.address}"/>
+                        <td th:text="${tempAirline.email}"/>
+                        <td th:text="${tempAirline.differential}"/>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+                 <table class="table table-bordered table-striped text-center">
+                     <thead class="thead-light">
+                     <tr>
+                         <th></th>
+                         <th>Uplift LIT</th>
+                         <th>Uplift KG</th>
+                         <th>Value</th>
+                     </tr>
+                     </thead>
+
+                     <tbody>
+                     <tr>
+                         <td><b>Total</b></td>
+                         <td th:text="${tempAirline.address}"/>
+                         <td th:text="${tempAirline.email}"/>
+                         <td th:text="${tempAirline.differential}"/>
+
+                     </tr>
+                     </tbody>
+                 </table>
+            <!-- Add a back button -->
+                 <form>
+                     <input type="button" value="< Back" onclick="history.back()"
+                            class="btn btn-info btn-bold px-4 float-right mt-4">
+                 </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -10,4 +10,14 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
 
     @Query(value = "SELECT * FROM invoices WHERE airline_id = ?1", nativeQuery = true)
     List<Invoice> findByAirlineId(int theId);
+
+
+
+
+    //fix query
+    @Query(value = "SELECT SUM(total_days) FROM MyEntity", nativeQuery = true)
+    Double sumLitByAirlineId(int theId);
+
+
+
 }

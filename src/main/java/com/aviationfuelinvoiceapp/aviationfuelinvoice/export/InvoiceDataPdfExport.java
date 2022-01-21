@@ -1,4 +1,4 @@
-package com.aviationfuelinvoiceapp.aviationfuelinvoice.view;
+package com.aviationfuelinvoiceapp.aviationfuelinvoice.export;
 
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Invoice;
 import com.lowagie.text.*;
@@ -11,7 +11,6 @@ import org.springframework.web.servlet.view.document.AbstractPdfView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
-import java.awt.List;
 import java.util.Date;
 import java.util.Map;
 
