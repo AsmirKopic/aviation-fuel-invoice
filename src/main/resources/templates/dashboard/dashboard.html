@@ -52,37 +52,6 @@
 
             <h5>Overview</h5>
             <hr>
-
-            <div class="tableFixHead">
-                <table class="table table-bordered table-striped text-center">
-                    <thead class="thead-light">
-                    <tr>
-                        <th>Airline Name</th>
-                        <th>Uplift LIT</th>
-                        <th>Uplift KG</th>
-                        <th>Value</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr th:each="tempAirline : ${airlines}">
-
-                       <!-- <td th:text="${tempAirline.name}"/> -->
-                        <div>
-                            <td>
-                                <a th:href="@{/airlines/showInfo(airlineId=${tempAirline.airlineId})}"
-                                   class="btn btn-link" th:text="${tempAirline.name}" />
-                            </td>
-                        </div>
-
-                        <td th:text="${tempAirline.address}"/>
-                        <td th:text="${tempAirline.email}"/>
-                        <td th:text="${tempAirline.differential}"/>
-
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
                  <table class="table table-bordered table-striped text-center">
                      <thead class="thead-light">
                      <tr>
@@ -96,9 +65,9 @@
                      <tbody>
                      <tr>
                          <td><b>Total</b></td>
-                         <td th:text="${tempAirline.address}"/>
-                         <td th:text="${tempAirline.email}"/>
-                         <td th:text="${tempAirline.differential}"/>
+                         <td th:text="${totalLit}"/>
+                         <td th:text="${totalKg}"/>
+                         <td th:text="${totalValue}"/>
 
                      </tr>
                      </tbody>

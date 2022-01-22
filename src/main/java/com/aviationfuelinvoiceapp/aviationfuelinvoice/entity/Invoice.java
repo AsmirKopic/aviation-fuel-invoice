@@ -132,12 +132,12 @@ public class Invoice {
         return (airline.getDifferential() / 1000);
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPrice() {
+        this.price = airline.getDifferential();
     }
 
     public Double getTotalPrice() {
-        return (this.getPrice() * upliftKg);
+        return (airline.getDifferential() / 1000) * upliftKg;
     }
 
     public void setTotalPrice(Double totalPrice) {

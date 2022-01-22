@@ -29,12 +29,12 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
      */
 
     @Query(value = "SELECT SUM(upliftLit) FROM invoices", nativeQuery = true)
-    double sumTotalLit();
+    Double sumTotalLit();
 
     @Query(value = "SELECT SUM(upliftKg) FROM invoices", nativeQuery = true)
-    double sumTotalKg();
+    Double sumTotalKg();
 
     @Query(value = "SELECT SUM(totalPrice) FROM invoices", nativeQuery = true)
-    double sumTotalValue();
+    Double sumTotalValue();
 
 }

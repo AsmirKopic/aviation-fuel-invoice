@@ -48,8 +48,9 @@ public class InvoiceController {
    }
 
    @PostMapping("/save")
-    public String save(@ModelAttribute("invoice") Invoice theInvoice){
+    public String save(@ModelAttribute("invoice") Invoice theInvoice, @ModelAttribute("airline") Airline theAirline){
 
+        theInvoice.setAirline(theAirline);
         invoiceService.save(theInvoice);
 
         return "redirect:/invoices/list";

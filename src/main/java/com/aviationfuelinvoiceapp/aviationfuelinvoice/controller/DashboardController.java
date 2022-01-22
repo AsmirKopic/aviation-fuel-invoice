@@ -1,18 +1,21 @@
 package com.aviationfuelinvoiceapp.aviationfuelinvoice.controller;
 
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
+import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Invoice;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.AirlineService;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/dashboard")
+@RequestMapping("/home")
 public class DashboardController {
 
     InvoiceService invoiceService;
@@ -24,17 +27,18 @@ public class DashboardController {
         this.airlineService = airlineService;
     }
 
-
+    @GetMapping("/dashboard")
     public String overview(Model theModel){
 
-        List<Airline> theAirlines = airlineService.findAll();
+        Double sumTotalKg = invoiceService.sumTotalKg();
+        Double sumTotalLit = invoiceService.sumTotalLit();
+        Double sumTotalValue = invoiceService.sumTotalValue();
 
-        // continue impl.
+        theModel.addAttribute("totalKg", sumTotalKg);
+        theModel.addAttribute("totalLit", sumTotalLit);
+        theModel.addAttribute("totalValue", sumTotalValue);
 
-
-
-        return null;
+        return "/dashboard/dashboard";
     }
-
 
 }
