@@ -18,7 +18,7 @@ body{
 .wrapper .sidebar{
   width: 200px;
   height: 100%;
-  background: #4b4276;
+  background: #16162b;
   padding: 30px 0px;
   position: fixed;
 }
@@ -47,7 +47,7 @@ body{
 }
 
 .wrapper .sidebar ul li:hover{
-  background-color: #594f8d;
+  background-color: #2c2c56;
 }
 
 .wrapper .sidebar ul li:hover a{
@@ -70,7 +70,7 @@ body{
   line-height: 45px;
   text-align: center;
   margin: 0 5px;
-  color: #bdb8d7;
+  color: #2c2c56;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -82,7 +82,7 @@ body{
 .wrapper .main_content .container{
   padding: 20px;
   background: #f3f5f9;
-  border-bottom: 1px solid #e0e4e8;
+
 }
 
 .wrapper .main_content .header{

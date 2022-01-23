@@ -42,7 +42,10 @@ public class InvoiceDataPdfExport extends AbstractPdfView {
     {
 
         //download PDF with a given filename
-        response.addHeader("Content-Disposition", "attachment;filename=Invoices.pdf");
+        // response.addHeader("Content-Disposition", "attachment;filename=Invoices.pdf");
+
+        //open PDF in new tab
+        response.addHeader("Content-Disposition", "inline;filename=Invoices.pdf");
 
         //read data from controller
         // List<Invoice> list = (List<Invoice>) model.get("list");

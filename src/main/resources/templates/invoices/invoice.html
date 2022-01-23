@@ -17,7 +17,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="invoicestyle.css"/>
+
     <link rel="stylesheet" th:href="@{/css/invoicestyle.css}"/>
 
 </head>
@@ -126,7 +126,9 @@
                         <form>
                             <input type="button" value="< Back" onclick="history.back()" class="btn btn-info btn-bold px-4 float-right">
                         </form>
-                        <a th:href="@{/invoices/pdf}" class="btn btn-success"> <i class="fa fa-file-pdf-o"></i> Export into PDF </a>
+                        <a th:href="@{/invoices/pdf(invoiceId=${invoice.id})}" class="btn btn-success"> <i class="fa fa-file-pdf-o"></i> Export into PDF </a>
+
+
                         <button class="btn btn-danger"><i class="fa fa-envelope-o"></i> Mail Invoice</button>
 
                     </div>

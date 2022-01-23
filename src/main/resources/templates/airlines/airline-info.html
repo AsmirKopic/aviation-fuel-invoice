@@ -20,22 +20,8 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="sidebar">
-        <h2>AF Logo</h2>
-        <ul>
-            <li><a href="/invoices/list"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="/airlines/list"><i class="fas fa-user"></i>Profile</a></li>
-            <li><a href="/invoices/list"><i class="fas fa-address-card"></i>About</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
-            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
-            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
-        </ul>
-        <div class="social_media">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
+
+    <div th:replace="fragments/topnav :: navbar">
     </div>
 
     <div class="main_content">
@@ -46,23 +32,23 @@
 
             <div class="d-flex justify-content-between">
                 <div class="p-2">
-                    <b>Name</b>
+                    <b><i class="fas fa-user-tie"></i> Name</b>
                     <p th:utext="${airline.name}"/>
                 </div>
                 <div class="p-2">
-                    <b>Address</b>
+                    <b><i class="fas fa-map-marker-alt"></i> Address</b>
                     <p th:utext="${airline.address}"> Address 25, City</p>
                 </div>
                 <div class="p-2">
-                    <b>Email</b>
+                    <b><i class="fas fa-envelope"></i> Email</b>
                     <p th:utext="${airline.email}"> email@emial.com</p>
                 </div>
                 <div class="p-2">
-                    <b>Differential</b>
+                    <b><i class="fas fa-dollar-sign"></i> Differential</b>
                     <p th:utext="${airline.differential}">245</p>
                 </div>
                 <div class="p-2">
-                    <b>Payment terms</b>
+                    <b><i class="fas fa-calendar-day"></i> Payment terms</b>
                     <p th:utext="${airline.paymentTerms}">35</p>
                 </div>
             </div>

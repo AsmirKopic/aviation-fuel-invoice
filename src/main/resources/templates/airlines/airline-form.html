@@ -15,27 +15,13 @@
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-    <link rel="stylesheet" href="styles.css"/>
+
 
 </head>
 <body>
 <div class="wrapper">
-    <div class="sidebar">
-        <h2>AF Logo</h2>
-        <ul>
-            <li><a href="/invoices/list"><i class="fas fa-home"></i>Home</a></li>
-            <li><a href="/airlines/list"><i class="fas fa-user"></i>Profile</a></li>
-            <li><a href="/invoices/list"><i class="fas fa-address-card"></i>About</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
-            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
-            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
-        </ul>
-        <div class="social_media">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
+
+    <div th:replace="fragments/topnav :: navbar">
     </div>
 
     <div class="main_content">

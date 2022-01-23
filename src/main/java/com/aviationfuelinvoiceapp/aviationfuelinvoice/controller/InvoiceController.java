@@ -50,7 +50,11 @@ public class InvoiceController {
    @PostMapping("/save")
     public String save(@ModelAttribute("invoice") Invoice theInvoice, @ModelAttribute("airline") Airline theAirline){
 
-        theInvoice.setAirline(theAirline);
+        double price = theAirline.getDifferential() / 1000;
+        double totalPrice = price * theInvoice.getUpliftKg();
+        theInvoice.setPrice(price);
+        theInvoice.setTotalPrice(totalPrice);
+
         invoiceService.save(theInvoice);
 
         return "redirect:/invoices/list";
@@ -88,11 +92,11 @@ public class InvoiceController {
    }
 
     @GetMapping("/pdf")
-    public ModelAndView exportToPdf() {
+    public ModelAndView exportToPdf(@RequestParam("invoiceId") int theId) {
         ModelAndView mav = new ModelAndView();
         mav.setView(new InvoiceDataPdfExport());
         //read data from DB
-        Invoice theInvoice = invoiceService.findById(13);
+        Invoice theInvoice = invoiceService.findById(theId);
         //send to pdfImpl class
         mav.addObject("invoice", theInvoice);
 
