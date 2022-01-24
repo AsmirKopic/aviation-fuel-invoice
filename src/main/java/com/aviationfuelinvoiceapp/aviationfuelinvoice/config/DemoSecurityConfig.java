@@ -23,7 +23,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		// use jdbc authentication ... oh yeah!!!		
+		// use jdbc authentication
 		auth.jdbcAuthentication().dataSource(securityDataSource);
 		
 	}
@@ -32,15 +32,17 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-			.antMatchers("/employees/showForm*").hasAnyRole("MANAGER", "ADMIN")
-			.antMatchers("/employees/save*").hasAnyRole("MANAGER", "ADMIN")
-			.antMatchers("/employees/delete").hasRole("ADMIN")
+			.antMatchers("/airlines/showForm*").hasAnyRole("MANAGER", "ADMIN")
+			.antMatchers("/invoices/showForm*").hasAnyRole("MANAGER", "ADMIN")
+			.antMatchers("/airlines/save*").hasAnyRole("MANAGER", "ADMIN")
+			.antMatchers("/invoices/save*").hasAnyRole("MANAGER", "ADMIN")
+			.antMatchers("/airlines/delete").hasRole("ADMIN")
+			.antMatchers("/invoices/delete").hasAnyRole("MANAGER", "ADMIN")
 			.antMatchers("/employees/**").hasRole("EMPLOYEE")
 			.antMatchers("/resources/**").permitAll()
-			.antMatchers("/", "/css/**").permitAll()
 			.and()
 			.formLogin()
-				.loginPage("/showMyLoginPage")
+				.loginPage("/index")
 				.loginProcessingUrl("/authenticateTheUser")
 				.permitAll()
 			.and()

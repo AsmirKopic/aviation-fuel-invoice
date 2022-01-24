@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
   	<title>Login</title>
     <meta charset="utf-8">
@@ -24,14 +24,38 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	<h3 class="mb-4 text-center">Login to continue</h3>
-		      	<form action="#" class="signin-form">
+
+		      	<form th:action="@{/authenticateTheUser}" method="POST" class="signin-form">
+
+					<!-- Place for messages: error, alert etc ... -->
+					<div class="form-group">
+						<div class="col-xs-15">
+							<div>
+								<!-- Check for login error -->
+								<div th:if="${param.error}">
+									<div class="alert alert-danger col-xs-offset-1 col-xs-10">
+										Invalid username and password.
+									</div>
+								</div>
+
+								<!-- Check for logout -->
+								<div th:if="${param.logout}">
+									<div class="alert alert-success col-xs-offset-1 col-xs-10">
+										You’ve successfully logged out.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 		      		<div class="form-group">
-		      			<input type="text" class="form-control" placeholder="Username" required>
+		      			<input type="text" name="username" class="form-control" placeholder="Username" required>
 		      		</div>
 	            <div class="form-group">
-	              <input id="password-field" type="password" class="form-control" placeholder="Password" required>
+	              <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
+
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
 	            </div>
@@ -41,9 +65,6 @@
 									  <input type="checkbox" checked>
 									  <span class="checkmark"></span>
 									</label>
-								</div>
-								<div class="w-50 text-md-right">
-									<a href="#" style="color: #fff">Forgot Password</a>
 								</div>
 	            </div>
 	          </form>
