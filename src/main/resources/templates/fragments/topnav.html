@@ -44,6 +44,12 @@
         <div class="name_job">
           <div class="name"><span sec:authentication="name"> USER</span></div>
           <div class="job"><span sec:authentication="principal.authorities">Manager</span></div>
+
+          <form action="#" th:action="@{/logout}"
+                method="POST">
+            <input type="submit" value="Logout"></input>
+          </form>
+
         </div>
 
 
@@ -52,8 +58,6 @@
 
             <input type="submit"></input>
           </form> -->
-        <li><a href="#" th:action="@{/logout}" method="POST" /><i class="fas fa-sign-out-alt"></i></li>
-
 
         </div>
 
