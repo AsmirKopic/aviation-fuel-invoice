@@ -56,7 +56,7 @@
                         <th>Price (USD/KG)</th>
                         <th>Total (USD)</th>
 
-                        <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">  <!--auth access -->
+                        <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_EMPLOYEE')">  <!--auth access -->
                             <th>Action</th>
                         </div>
                     </tr>
