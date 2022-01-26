@@ -1,11 +1,14 @@
   <div th:fragment="navbar">
     <div class="sidebar">
-      <h2>Logo</h2>
+      <a class="navbar-brand" href="/" style="margin: auto;">
+        <img src="https://i.postimg.cc/QNSL2hKz/logo.png" width="50" height="50" alt="">
+      </a>
+      <h4>Aviation fuel management</h4>
       <ul>
-        <li><a href="/home/dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+        <li><a href="/"><i class="fas fa-home"></i>Dashboard</a></li>
         <li><a href="/airlines/list"><i class="fas fa-users"></i>Clients</a></li>
         <li><a href="/invoices/list"><i class="fas fa-file-invoice-dollar"></i>Invoices</a></li>
-        <li><a href="/home/dashboard"><i class="fas fa-chart-line"></i>Reports</a></li>
+        <li><a href="/"><i class="fas fa-chart-line"></i>Reports</a></li>
         <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
         <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
         <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
@@ -16,7 +19,8 @@
           <div class="job"><span sec:authentication="principal.authorities">Manager</span></div>add login info and logout button -->
 
         <div class="name_job">
-
+          <div class="name"><span sec:authentication="name"></span></div>
+          <div class="job"><span sec:authentication="principal.authorities"></span></div>
 
           <form action="#" th:action="@{/logout}"
                 method="POST">

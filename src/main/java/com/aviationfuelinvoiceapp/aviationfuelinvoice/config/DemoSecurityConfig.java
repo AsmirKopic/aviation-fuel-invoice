@@ -31,7 +31,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-			.antMatchers("/**").hasAnyRole("MANAGER", "ADMIN")
+			.antMatchers("/").hasAnyRole("MANAGER", "ADMIN")
 			.antMatchers("/airlines/delete").hasRole("ADMIN")
 			.antMatchers("/invoices/delete").hasAnyRole("MANAGER", "ADMIN")
 			.antMatchers("/resources/**").permitAll()
