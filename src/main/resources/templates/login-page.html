@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Reference Bootstrap files -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../static/css/login-style.css" th:href="@{/css/login-style.css}">
+
+
+</head>
+
+<body>
+
+<div class="form-box">
+    <div class="header-text">
+        Login to continue
+    </div>
+    <form th:action="@{/authenticateTheUser}"
+          method="POST" class="form-horizontal">
+
+        <!-- Place for messages: error, alert etc ... -->
+        <div class="form-group">
+            <div class="col-xs-15">
+                <div>
+                    <!-- Check for login error -->
+
+                    <div th:if="${param.error}">
+
+                        <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+                            Invalid username and password.
+                        </div>
+
+                    </div>
+
+                    <!-- Check for logout -->
+
+                    <div th:if="${param.logout}">
+
+                        <div class="alert alert-success col-xs-offset-1 col-xs-10">
+                            You have been logged out.
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <input type="text" name="username" placeholder="Username" class="form-control">
+        <input type="password" name="password" placeholder="Password" class="form-control">
+        <div>
+            <button type="submit" class="btn btn-success">Login</button>
+        </div>
+
+    </form>
+</div>
+</body>
+
+</html>

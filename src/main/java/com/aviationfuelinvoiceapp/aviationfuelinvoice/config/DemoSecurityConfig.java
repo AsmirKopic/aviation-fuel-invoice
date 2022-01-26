@@ -25,21 +25,16 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// use jdbc authentication
 		auth.jdbcAuthentication().dataSource(securityDataSource);
-		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-			.antMatchers("/airlines/showForm*").hasAnyRole("MANAGER", "ADMIN")
-			.antMatchers("/invoices/showForm*").hasAnyRole("MANAGER", "ADMIN")
-			.antMatchers("/airlines/save*").hasAnyRole("MANAGER", "ADMIN")
-			.antMatchers("/invoices/save*").hasAnyRole("MANAGER", "ADMIN")
+			.antMatchers("/**").hasAnyRole("MANAGER", "ADMIN")
 			.antMatchers("/airlines/delete").hasRole("ADMIN")
 			.antMatchers("/invoices/delete").hasAnyRole("MANAGER", "ADMIN")
 			.antMatchers("/resources/**").permitAll()
-
 			.and()
 			.formLogin()
 				.loginPage("/myLoginPage")
