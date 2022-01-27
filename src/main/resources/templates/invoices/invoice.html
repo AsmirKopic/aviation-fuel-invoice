@@ -19,11 +19,14 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" th:href="@{/css/invoicestyle.css}"/>
+    <link rel="stylesheet" href="invoicestyle.css"/>
+
+
 
 </head>
 <body>
 
-<div class="container bootstrap snippets bootdeys">
+    <div class="container bootstrap snippets bootdeys">
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default invoice" id="invoice">
@@ -32,8 +35,13 @@
                     <div class="row">
 
                         <div class="col-sm-6 top-left">
-                            <i class="fa fa-paper-plane">afm</i>
+                            <div class="logo">
+                                <img src="https://i.postimg.cc/QNSL2hKz/logo.png" width="120" height="110"  alt="">
+                            </div>
+                            <h6>Aviation fuel invoice management</h6>
+
                         </div>
+
 
                         <div class="col-sm-6 top-right">
                             <h3 class="marginright">INVOICE- <span th:text="${invoice.id}"></span></h3>
