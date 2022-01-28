@@ -49,6 +49,20 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
+    public List<Invoice> searchById(int theId) {
+
+        List<Invoice> result = null;
+
+        if (theId > 0) {
+            result = invoiceRepository.queryById(theId);
+        } else {
+            result = findAll();
+        }
+
+        return result;
+    }
+
+    @Override
     public List<Invoice> findByAirlineId(int theId) {
         return invoiceRepository.findByAirlineId(theId);
     }

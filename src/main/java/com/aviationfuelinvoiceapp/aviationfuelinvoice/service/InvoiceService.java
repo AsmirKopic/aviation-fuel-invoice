@@ -15,6 +15,8 @@ public interface InvoiceService {
 
     public void deleteById(int theId);
 
+    public List<Invoice> searchById(int theId);
+
     public List<Invoice> findByAirlineId(int theId);
 
     public double sumLitByAirlineId(int theId);

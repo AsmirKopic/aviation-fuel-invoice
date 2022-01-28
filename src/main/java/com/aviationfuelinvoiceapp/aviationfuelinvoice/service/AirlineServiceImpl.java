@@ -61,13 +61,11 @@ public class AirlineServiceImpl implements AirlineService{
 
         List<Airline> result = null;
 
-        if (result != null && (name.trim().length() > 0)) {
-            result = airlineRepository.findByNameContaining(name);
-
+        if (name != null && (name.trim().length() > 0)) {
+            result = airlineRepository.findByNameContainsAllIgnoreCase(name);
+        } else {
+            result = findAll();
         }
-//        } else {
-//            result = findAll();
-//        }
 
         return result;
     }

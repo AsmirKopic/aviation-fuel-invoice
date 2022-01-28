@@ -4,9 +4,15 @@ background:#eee;
 
 /*Invoice*/
 .invoice .top-left {
-    font-size:65px;
-	color:#3ba0ff;
+
+	color: red;
+	width:100px;
 }
+
+.invoice .top-left .logo {
+    padding-left:50px;
+}
+
 
 .invoice .top-right {
 	text-align:right;

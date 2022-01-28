@@ -31,19 +31,22 @@
 
             <h3>Clients</h3>
             <hr>
-
-            <form th:action="@{/airlines/search}" class="form-inline">
-
-                <a th:href="@{/airlines/showFormForAdd}" class="btn btn-success mb-3"><i class="fas fa-user-plus"></i> New customer</a>
-
-                <input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="airline"
-                       placeholder="Search by name"/>
-                <button class="btn btn-success mb-3" type="submit">Search</button>
-            </form>
+                 <div class="d-flex">
+                     <div class="p-2">
+                         <a th:href="@{/airlines/showFormForAdd}" class="btn btn-success mb-3"><i class="fas fa-user-plus"></i> New client</a>
+                     </div>
+                     <div class="ml-auto p-2">
+                         <form th:action="@{/airlines/search}" class="form-inline">
+                             <input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="airlineName"
+                                    placeholder="Search by name" style="float: right;"/>
+                             <button class="btn btn-success mb-3" type="submit">Search</button>
+                         </form>
+                     </div>
+                 </div>
 
             <div class="tableFixHead">
                 <table class="table table-bordered table-striped text-center">
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
                     <tr>
                         <th>Airline Name</th>
                         <th>Address</th>
@@ -81,7 +84,8 @@
                                         <a th:href="@{/airlines/showFormForUpdate(airlineId=${tempAirline.airlineId})}"
                                            class="btn btn-info btn-sm mb-1"><i class="far fa-edit text-white"></i>
                                         </a>
-                                        |
+                                    </div>
+                                    <div sec:authorize="hasRole('ROLE_ADMIN')">
                                         <!-- Add "delete" button/link -->
                                         <a th:href="@{/airlines/delete(airlineId=${tempAirline.airlineId})}"
                                            class="btn btn-danger btn-sm mb-1"

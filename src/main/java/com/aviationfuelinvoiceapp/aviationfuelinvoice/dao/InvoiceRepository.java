@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
 
+    public List<Invoice> queryById(int theId);
+
     /*
      * Query by airline id
      */

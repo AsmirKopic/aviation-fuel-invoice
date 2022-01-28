@@ -80,6 +80,15 @@ public class InvoiceController {
         return "redirect:/invoices/list";
    }
 
+    @GetMapping("/search")
+    public String search(@RequestParam("invoiceNumber") int theId, Model theModel){
+
+        List<Invoice> result = invoiceService.searchById(theId);
+        theModel.addAttribute("invoices", result);
+
+        return "invoices/list-invoices";
+    }
+
    @GetMapping("/showInvoice")
    public String showInvoice(@RequestParam("invoiceId") int theId, Model theModel){
 
