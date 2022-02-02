@@ -27,7 +27,7 @@ public class DashboardController {
         this.airlineService = airlineService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String overview(Model theModel){
 
         Double sumTotalKg = invoiceService.sumTotalKg();
