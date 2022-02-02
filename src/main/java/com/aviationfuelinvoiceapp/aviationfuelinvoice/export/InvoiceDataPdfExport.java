@@ -93,7 +93,6 @@ public class InvoiceDataPdfExport extends AbstractPdfView {
         table.addCell(new Phrase("Unit price",tableHead));
         table.addCell(new Phrase("Total price",tableHead));
 
-
         table.addCell("JET A1 - Aviation fuel");
         table.addCell(theInvoice.getUpliftKg().toString());
         table.addCell(theInvoice.getPrice().toString());
