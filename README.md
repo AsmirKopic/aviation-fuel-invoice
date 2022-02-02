@@ -16,8 +16,11 @@ $ git clone https://github.com/AsmirKopic/aviation-fuel-invoice.git
 #### 2. Database Configuration
 
 MySQL is used as the database.
+
 •	Open src/main/resources/application.properties
+
 •	If you run the application locally, change spring.datasource.username and spring.datasource.password as per your mysql installation
+
 The project is created with Maven.
 
 #### 3. Launch
