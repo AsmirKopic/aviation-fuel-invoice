@@ -15,8 +15,8 @@ import java.util.List;
 @RequestMapping("/airlines")
 public class AirlineController {
 
-    private AirlineService airlineService;
-    private InvoiceService invoiceService;
+    AirlineService airlineService;
+    InvoiceService invoiceService;
 
     @Autowired
     public AirlineController(AirlineService airlineService, InvoiceService invoiceService) {
