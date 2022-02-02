@@ -77,7 +77,7 @@ public class AirlineController {
         return "airlines/list-airlines";
     }
 
-    @GetMapping("/showInfo")
+    @RequestMapping("/showInfo")
     public String showInfo(@RequestParam("airlineId") int theId, Model theModel) {
 
         Airline theAirline = airlineService.findById(theId);
