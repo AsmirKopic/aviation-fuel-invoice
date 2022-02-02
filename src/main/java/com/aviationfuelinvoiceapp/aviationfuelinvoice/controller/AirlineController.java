@@ -34,7 +34,7 @@ public class AirlineController {
         return "airlines/list-airlines";
     }
 
-    @GetMapping("/showFormForAdd")
+    @RequestMapping("/showFormForAdd")
     public String showFormForAdd(Model theModel) {
 
         Airline theAirline = new Airline();
