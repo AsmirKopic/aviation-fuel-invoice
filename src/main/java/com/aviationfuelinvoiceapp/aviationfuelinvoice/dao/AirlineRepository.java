@@ -10,5 +10,4 @@ public interface AirlineRepository extends JpaRepository<Airline, Integer> {
     // search by name
     public List<Airline> findByNameContainsAllIgnoreCase(String name);
 
-    public List<Airline> findByNameContaining(String name);
 }

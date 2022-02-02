@@ -8,9 +8,12 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.net.URL;
 import java.util.Date;
 import java.util.Map;
 
@@ -138,20 +141,15 @@ public class InvoiceDataPdfExport extends AbstractPdfView {
         document.add(aircraftType);
         document.add(authNote);
 
+        // add document letterhead
+        String imageUrl = "https://i.pinimg.com/originals/dd/d7/13/ddd7130b572aebbd660b8ea30c63f3d5.jpg";
+        Image image = Image.getInstance(new URL(imageUrl));
 
-
-//        Image imghead = Image.getInstance("WebContent/images/letterHead.jpg");
-//        imghead.setAbsolutePosition(35,770);
-//        imghead.scaleAbsolute(125, 42);
-//        document.add(imghead);
-
-        Image image = Image.getInstance("C:\\Users\\HP\\Desktop\\imgs\\letter.png");
         float width = document.getPageSize().getWidth();
         float height = document.getPageSize().getHeight();
         image.scaleAbsolute(width, height);
         image.setAbsolutePosition(0,0);
 
         document.add(image);
-
     }
 }

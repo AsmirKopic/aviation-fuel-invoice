@@ -69,6 +69,4 @@ public class AirlineServiceImpl implements AirlineService{
 
         return result;
     }
-
-
 }
