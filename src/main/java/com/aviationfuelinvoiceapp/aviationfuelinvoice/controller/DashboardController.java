@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping
+@RequestMapping("/")
 public class DashboardController {
 
     InvoiceService invoiceService;
@@ -27,7 +27,7 @@ public class DashboardController {
         this.airlineService = airlineService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/dashboard")
     public String overview(Model theModel){
 
         Double sumTotalKg = invoiceService.sumTotalKg();

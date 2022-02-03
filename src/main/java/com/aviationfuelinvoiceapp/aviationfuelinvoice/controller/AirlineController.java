@@ -24,7 +24,7 @@ public class AirlineController {
         this.invoiceService = invoiceService;
     }
 
-    @GetMapping("/list")
+    @RequestMapping("/list")
     public String listAirlines(Model theModel){
 
         List<Airline> airlines = airlineService.findAll();
@@ -41,7 +41,7 @@ public class AirlineController {
 
         theModel.addAttribute("airline", theAirline);
 
-        return "/airlines/airline-form";
+        return "airlines/airline-form";
     }
 
     @PostMapping("/save")
@@ -58,7 +58,7 @@ public class AirlineController {
         Airline theAirline = airlineService.findById(theId);
         theModel.addAttribute("airline", theAirline);
 
-        return "/airlines/airline-form";
+        return "airlines/airline-form";
     }
 
     @GetMapping("/delete")
@@ -77,7 +77,7 @@ public class AirlineController {
         return "airlines/list-airlines";
     }
 
-    @RequestMapping("/showInfo")
+    @GetMapping("/showInfo")
     public String showInfo(@RequestParam("airlineId") int theId, Model theModel) {
 
         Airline theAirline = airlineService.findById(theId);
@@ -86,7 +86,7 @@ public class AirlineController {
         List<Invoice> invoiceList = invoiceService.findByAirlineId(theId);
         theModel.addAttribute("invoices", invoiceList);
 
-        return "/airlines/airline-info";
+        return "airlines/airline-info";
     }
 
 
