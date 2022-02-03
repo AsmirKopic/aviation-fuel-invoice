@@ -38,7 +38,7 @@ public class DashboardController {
         theModel.addAttribute("totalLit", sumTotalLit);
         theModel.addAttribute("totalValue", sumTotalValue);
 
-        return "/dashboard/dashboard";
+        return "dashboard/dashboard";
     }
 
 }
