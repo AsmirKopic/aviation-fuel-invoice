@@ -17,12 +17,12 @@ Login info:
 #### Admin Credential:
 
 username: admin  
-password: user1234
+password: 1234
 
 #### Manager Credential:
 
 username: manager  
-password: user1234
+password: 1234
 
 Admin is authorized to Create, Update and Delete records for Airline and related invoices, 
 while the Manager authorization/login allows only the creation and editing of records without the possibility of deleting them.
