@@ -2,15 +2,14 @@ package com.aviationfuelinvoiceapp.aviationfuelinvoice.service;
 
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.dao.AirlineRepository;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,6 +27,11 @@ class AirlineServiceImplTest {
         airlineTestService = new AirlineServiceImpl(airlineTestRepo);
     }
 
+    @AfterEach
+    void tearDown() {
+        airlineTestRepo.deleteAll();
+    }
+
     @Test
     void willFindAll() {
         // when
@@ -38,6 +42,17 @@ class AirlineServiceImplTest {
     @Test
     @Disabled
     void findById() {
+
+        Airline airline = new Airline();
+        airline.setAirlineId(1);
+        airline.setName("Test Airline");
+        airline.setAddress("Airline test address");
+        airline.setDifferential(700.00);
+        airline.setPaymentTerms(15);
+        airlineTestService.save(airline);
+
+        airlineTestService.findById(airline.getAirlineId());
+        verify(airlineTestRepo).findById(airline.getAirlineId());
     }
 
     @Test
@@ -65,6 +80,22 @@ class AirlineServiceImplTest {
     @Test
     @Disabled
     void deleteById() {
+
+        Airline airline = new Airline();
+        airline.setName("Test Airline");
+        airline.setAddress("Airline test address");
+        airline.setDifferential(700.00);
+        airline.setPaymentTerms(15);
+
+        airlineTestService.deleteById(airline.getAirlineId());
+
+
+        // check is AirlineRepository invoked delete() method with captured airline value
+        verify(airlineTestRepo).deleteById(airline.getAirlineId());
+
+        List<Airline> airlines = airlineTestRepo.findAll();
+
+        assertThat(airline).isNotIn(airlines);
     }
 
     @Test
