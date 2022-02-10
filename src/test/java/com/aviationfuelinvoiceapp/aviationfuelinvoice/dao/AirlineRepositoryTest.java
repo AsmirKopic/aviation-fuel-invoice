@@ -24,11 +24,7 @@ class AirlineRepositoryTest {
     @Test
     void itShouldFindByNameContains() {
 
-        Airline airline = new Airline();
-        airline.setName("Test Airline");
-        airline.setAddress("Airline test address");
-        airline.setDifferential(700.00);
-        airline.setPaymentTerms(15);
+        Airline airline = given();
 
         testRepo.save(airline);
 
@@ -41,17 +37,24 @@ class AirlineRepositoryTest {
     @Test
     void itShouldReturnEmptyList() {
 
+        Airline airline = given();
+
+        testRepo.save(airline);
+
+        List<Airline> containingList = testRepo.findByNameContainsAllIgnoreCase("Fail test name");
+        boolean expected = containingList.isEmpty();
+
+        assertThat(expected).isTrue();
+    }
+
+    private Airline given(){
+
         Airline airline = new Airline();
         airline.setName("Test Airline");
         airline.setAddress("Airline test address");
         airline.setDifferential(700.00);
         airline.setPaymentTerms(15);
 
-        testRepo.save(airline);
-
-        List<Airline> containingList = testRepo.findByNameContainsAllIgnoreCase("Fail name");
-        boolean expected = containingList.isEmpty();
-
-        assertThat(expected).isTrue();
+        return airline;
     }
 }
