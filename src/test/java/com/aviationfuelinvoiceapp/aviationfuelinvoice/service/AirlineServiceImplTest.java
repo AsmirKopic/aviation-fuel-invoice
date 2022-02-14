@@ -16,6 +16,7 @@ class AirlineServiceImplTest {
 
     @Mock
     private AirlineRepository airlineRepository;
+
     private AirlineServiceImpl airlineTestService;
 
     @BeforeEach
@@ -75,7 +76,7 @@ class AirlineServiceImplTest {
     }
 
     @Test
-    void deleteById() {
+    void canDeleteById() {
 
         Airline airline = given();
         airlineRepository.save(airline);
@@ -94,7 +95,7 @@ class AirlineServiceImplTest {
     }
 
     @Test
-    void searchByName() {
+    void canSearchByName() {
 
         Airline airline = given();
         airlineRepository.save(airline);

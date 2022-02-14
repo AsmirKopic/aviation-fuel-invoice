@@ -68,22 +68,6 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    public double sumLitByAirlineId(int theId) {
-       return invoiceRepository.sumLitByAirlineId(theId);
-    }
-
-    @Override
-    public double sumKgByAirlineId(int theId) {
-        return invoiceRepository.sumKgByAirlineId(theId);
-    }
-
-    @Override
-    public double sumValueByAirlineId(int theId) {
-
-        return invoiceRepository.sumValueByAirlineId(theId);
-    }
-
-    @Override
     public double sumTotalLit() {
         return invoiceRepository.sumTotalLit();
     }

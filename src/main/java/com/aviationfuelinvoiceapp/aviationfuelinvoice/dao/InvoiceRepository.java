@@ -17,14 +17,14 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     @Query(value = "SELECT * FROM invoices WHERE airline_id = ?1", nativeQuery = true)
     List<Invoice> findByAirlineId(int theId);
 
-    @Query(value = "SELECT SUM(upliftLit) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
-    double sumLitByAirlineId(int theId);
-
-    @Query(value = "SELECT SUM(upliftKg) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
-    double sumKgByAirlineId(int theId);
-
-    @Query(value = "SELECT SUM(totalPrice) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
-    double sumValueByAirlineId(int theId);
+//    @Query(value = "SELECT SUM(upliftLit) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
+//    double sumLitByAirlineId(int theId);
+//
+//    @Query(value = "SELECT SUM(upliftKg) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
+//    double sumKgByAirlineId(int theId);
+//
+//    @Query(value = "SELECT SUM(totalPrice) FROM invoices WHERE airline_id = ?1", nativeQuery = true)
+//    double sumValueByAirlineId(int theId);
 
     /*
      *  Query for total sum
