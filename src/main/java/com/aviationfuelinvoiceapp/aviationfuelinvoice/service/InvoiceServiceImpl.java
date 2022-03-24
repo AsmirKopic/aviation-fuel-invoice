@@ -86,7 +86,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public double calculatePrice(Invoice theInvoice, Airline theAirline) {
 
-        double totalPrice = (theAirline.getDifferential() / 1000) * theInvoice.getUpliftKg();
+        double totalPrice = (theAirline.getDifferential() / 1000.00) * theInvoice.getUpliftKg();
 
         return totalPrice;
     }
