@@ -1,5 +1,6 @@
 package com.aviationfuelinvoiceapp.aviationfuelinvoice.service;
 
+import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Invoice;
 import org.springframework.data.jpa.repository.Query;
 
@@ -24,6 +25,8 @@ public interface InvoiceService {
     public double sumTotalKg();
 
     public double sumTotalValue();
+
+    public double calculatePrice(Invoice theInvoice, Airline theAirline);
 }
 
 

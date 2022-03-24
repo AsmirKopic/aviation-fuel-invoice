@@ -50,9 +50,8 @@ public class InvoiceController {
    @PostMapping("/save")
     public String save(@ModelAttribute("invoice") Invoice theInvoice, @ModelAttribute("airline") Airline theAirline){
 
-        double price = theAirline.getDifferential() / 1000;
-        double totalPrice = price * theInvoice.getUpliftKg();
-        theInvoice.setPrice(price);
+        double totalPrice = invoiceService.calculatePrice(theInvoice, theAirline);
+        theInvoice.setPrice(theAirline.getDifferential());
         theInvoice.setTotalPrice(totalPrice);
 
         invoiceService.save(theInvoice);

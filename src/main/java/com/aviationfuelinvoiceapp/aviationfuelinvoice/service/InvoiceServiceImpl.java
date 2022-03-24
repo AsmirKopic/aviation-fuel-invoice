@@ -1,6 +1,7 @@
 package com.aviationfuelinvoiceapp.aviationfuelinvoice.service;
 
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.dao.InvoiceRepository;
+import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Airline;
 import com.aviationfuelinvoiceapp.aviationfuelinvoice.entity.Invoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,5 +82,14 @@ public class InvoiceServiceImpl implements InvoiceService {
     public double sumTotalValue() {
         return invoiceRepository.sumTotalValue();
     }
+
+    @Override
+    public double calculatePrice(Invoice theInvoice, Airline theAirline) {
+
+        double totalPrice = (theAirline.getDifferential() / 1000) * theInvoice.getUpliftKg();
+
+        return totalPrice;
+    }
+
 
 }
