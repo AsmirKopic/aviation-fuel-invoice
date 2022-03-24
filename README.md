@@ -52,5 +52,5 @@ List of invoices
 
 Export invoice in PDF
 
-![interface5](https://github.com/AsmirKopic/aviation-fuel-invoice/blob/master/screenshots/capture6.png)
+![interface5](https://github.com/AsmirKopic/aviation-fuel-invoice/blob/master/screenshots/capture6.PNG)
 
