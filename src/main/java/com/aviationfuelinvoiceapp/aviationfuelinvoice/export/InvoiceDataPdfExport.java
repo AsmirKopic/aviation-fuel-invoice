@@ -55,8 +55,6 @@ public class InvoiceDataPdfExport extends AbstractPdfView {
         //open PDF in new tab
         response.addHeader("Content-Disposition", "inline;filename=Invoices.pdf");
 
-        // read data from controller
-        // List<Invoice> list = (List<Invoice>) model.get("list");
         Invoice theInvoice = (Invoice) model.get("invoice");
 
         //create element
@@ -141,7 +139,8 @@ public class InvoiceDataPdfExport extends AbstractPdfView {
         document.add(authNote);
 
         // add document letterhead
-        String imageUrl = "https://i.pinimg.com/originals/dd/d7/13/ddd7130b572aebbd660b8ea30c63f3d5.jpg";
+        String imageUrl = "https://i.ibb.co/8g41zjL/logo3.jpg";
+
         Image image = Image.getInstance(new URL(imageUrl));
 
         float width = document.getPageSize().getWidth();
