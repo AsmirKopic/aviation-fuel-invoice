@@ -51,7 +51,9 @@ public class InvoiceController {
     public String save(@ModelAttribute("invoice") Invoice theInvoice, @ModelAttribute("airline") Airline theAirline){
 
         double totalPrice = invoiceService.calculatePrice(theInvoice, theAirline);
-        theInvoice.setPrice(theAirline.getDifferential());
+        double price = invoiceService.calculateDifferential(theInvoice, theAirline);
+
+        theInvoice.setPrice(price);
         theInvoice.setTotalPrice(totalPrice);
 
         invoiceService.save(theInvoice);

@@ -27,6 +27,8 @@ public interface InvoiceService {
     public double sumTotalValue();
 
     public double calculatePrice(Invoice theInvoice, Airline theAirline);
+
+    public double calculateDifferential(Invoice theInvoice, Airline theAirline);
 }
 
 

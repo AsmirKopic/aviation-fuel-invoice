@@ -41,4 +41,10 @@ public class DashboardController {
         return "dashboard/dashboard";
     }
 
+    @RequestMapping("/about")
+    public String showAbout(){
+        return "about/about";
+    }
+
+
 }
